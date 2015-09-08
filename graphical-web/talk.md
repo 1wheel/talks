@@ -1,6 +1,7 @@
-# Choosing the right tool: Combining manual and programmatic manipulation of SVG
+# Manual and programmatic manipulation of SVGs
 
 [1wheel.github.io/talks/graphical-web](http://1wheel.github.io/talks/graphical-web/#/)
+
 
 ## Adam Pearce
 - [roadtolarissa.com](http://roadtolarissa.com)
@@ -9,16 +10,54 @@
 - [@adamrpearce](https://twitter.com/adamrpearce)
 
 
-## Slide 2
+## D3 is great at encoding data
 
-Over the last few years, the acceleration of client-side javascript and development of D3 has enabled the creation of increasingly sophisticated interactive visualizations. Transforming data into an SVG with D3 makes many previously difficult tasks trivial. But other tasks -- like text positioning, layout and illustration -- are much easier with tools designed for manually manipulating SVGs, like Illustrator or Inkscape. This talk will discuss different techniques that Bloomberg Graphics uses to combine the two approaches. 
+![255-charts](img/255-charts.png)
+
+[How the Recession Reshaped the Economy, in 255 Charts](http://www.nytimes.com/interactive/2014/06/05/upshot/how-the-recession-reshaped-the-economy-in-255-charts.html
+)
+
+<!-- Over the last few years, the acceleration of client-side javascript and development of D3 has enabled the creation of increasingly sophisticated interactive visualizations. Transforming data into an SVG with D3 makes many previously difficult tasks trivial. But other tasks -- like text positioning, layout and illustration -- are much easier with tools designed for manually manipulating SVGs, like Illustrator or Inkscape. This talk will discuss different techniques that Bloomberg Graphics uses to combine the two approaches.  -->
+
+
+## D3 is great at animating data
+![animated spoofing](img/spoofing.gif)
+
+[bloomberg.com/graphics/2015-spoofing](http://www.bloomberg.com/graphics/2015-spoofing
+)
+
+
+## D3 is great for interacting with data
+![crossfilter](img/crossfilter.gif)
+
+[square.github.io/crossfilter](http://square.github.io/crossfilter/)
+
+
+## D3 struggles with annotations
+
+![waggoner](img/waggoner.jpg)
+
+[bloomberg.com/graphics/2015-famous-texas-waggoner-ranch-for-sale/](http://www.bloomberg.com/graphics/2015-famous-texas-waggoner-ranch-for-sale/)
+
+
+## D3 struggles with layout
+
+
+## D3 struggles with illustration
+
 
 
 ####Adding Animation
+
+http://www.bloomberg.com/graphics/2015-march-madness-gambling/
+
 By strategically placing illustrated elements in groups and loading an SVG in a browser, we can add rudimentary animations with d3.timer and d3.transition. Smoothly changing transform, translate and/or rotate over time creates the illusion of movement. Toggling the opacity of an arm or another object drawn in two different positions also brings static images to life. 
 
 
 ####Adding Interaction
+
+http://www.bloomberg.com/graphics/2015-nfl-super-bowl-salary/
+
 Beyond creating gif-like loops (with vectors and a full color palette), SVG animations can be trigged by user interactions. Changing the stroke-dashoffset while scrolling down the page looks quite nice while being simple to implement. Bar charts are also easy to add a flourish to - just save the drawn heights, set the heights to 0 on load and use a staggered transition to move them back to their original positions.
 
 
