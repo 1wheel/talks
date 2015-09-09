@@ -134,6 +134,13 @@
 				d3.selectAll('code').classed('javascript', true).each(function(){
 					hljs.highlightBlock(this)
 				})
+
+
+				d3.selectAll('img')
+						.filter(function(d){
+							return d3.select(this).attr('src') == 'img/waving.svg' })
+						.style('background-color', 'white')
+
 				// hljs.initHighlightingOnLoad()
 
 			});

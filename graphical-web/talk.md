@@ -75,6 +75,15 @@
     fs.writeFileSync('index.html', html)
 
 
+## Adding Animation - Arm Wave
+
+![waving](img/waving.svg)
+
+    d3.timer(function(t){
+      d3.select('#arm2a').attr('display', t % 1000 <  700 ? '' : 'none')
+      d3.select('#arm2b').attr('display', t % 1000 >= 700 ? '' : 'none')
+    })
+
 
 ####Adding Interaction
 
