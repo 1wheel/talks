@@ -21,7 +21,6 @@
 )
 
 
-
 ## D3 is great at animating data
 ![animated spoofing](img/spoofing.gif)
 
@@ -50,17 +49,30 @@
 
 <!-- By strategically placing illustrated elements in groups and loading an SVG in a browser, we can add rudimentary animations with d3.timer and d3.transition. Smoothly changing transform, translate and/or rotate over time creates the illusion of movement. Toggling the opacity of an arm or another object drawn in two different positions also brings static images to life.  -->
 
-
 ## Adding Animation
 
 ![march](img/march.gif)
 
-bloomberg.com/graphics/2015-march-madness-gambling/
-[http://www.bloomberg.com/graphics/2015-march-madness-gambling/]()
+[bloomberg.com/graphics/2015-march-madness-gambling](http://www.bloomberg.com/graphics/2015-march-madness-gambling/)
 
 
 ## Adding Animation - Load the SVG
 
+<p class='lh'>Client Side</p>
+
+    d3.xml("gambling.svg", "image/svg+xml", function(xml){
+      var el = d3.select('#svg-container')
+      el.node().appendChild(xml.documentElement)
+    })
+
+<p class='lh'>Build Step (works with IE9)</p>
+
+    var html = fs.readFileSync('src.html',     'utf-8')
+    var svg  = fs.readFileSync('gambling.svg', 'utf-8')
+    html = html.replace("id='svg-container'></div>", 
+                        "id='svg-container'>" + svg + "</div>")
+
+    fs.writeFileSync('index.html', html)
 
 
 

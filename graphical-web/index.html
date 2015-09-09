@@ -46,6 +46,11 @@
 				padding-left: 1.2em !important;
 			}
 
+			.lh{
+				text-align: left;
+				padding-left: 1.2em !important
+			}
+
 			.reveal .slides {
 			  text-align: center;
 			}
@@ -87,6 +92,7 @@
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
 
 		<script>
 
@@ -105,14 +111,14 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					// { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() {  } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
 
 			Reveal.addEventListener( 'ready', function( event ) {
-				d3.selectAll('p').each(function(){
+				d3.selectAll('lh').each(function(){
 					var sel = d3.select(this)
 					if (sel.text() == 'Before') sel.classed('before', true)
 					if (sel.text() == 'After')  sel.classed('after',  true)
@@ -124,6 +130,12 @@
 					if (sel.text() == 'ƒIELD ACCESSOR') sel.style('text-transform', 'none')
 					if (sel.text() == 'dataAppend') sel.style('text-transform', 'none')
 				})   
+
+				d3.selectAll('code').classed('javascript', true).each(function(){
+					hljs.highlightBlock(this)
+				})
+				// hljs.initHighlightingOnLoad()
+
 			});
 
 
