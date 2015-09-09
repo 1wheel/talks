@@ -10,6 +10,9 @@
 - [@adamrpearce](https://twitter.com/adamrpearce)
 
 
+<!-- Over the last few years, the acceleration of client-side javascript and development of D3 has enabled the creation of increasingly sophisticated interactive visualizations. Transforming data into an SVG with D3 makes many previously difficult tasks trivial. But other tasks -- like text positioning, layout and illustration -- are much easier with tools designed for manually manipulating SVGs, like Illustrator or Inkscape. This talk will discuss different techniques that Bloomberg Graphics uses to combine the two approaches.  -->
+
+
 ## D3 is great at encoding data
 
 ![255-charts](img/255-charts.png)
@@ -17,7 +20,6 @@
 [How the Recession Reshaped the Economy, in 255 Charts](http://www.nytimes.com/interactive/2014/06/05/upshot/how-the-recession-reshaped-the-economy-in-255-charts.html
 )
 
-<!-- Over the last few years, the acceleration of client-side javascript and development of D3 has enabled the creation of increasingly sophisticated interactive visualizations. Transforming data into an SVG with D3 makes many previously difficult tasks trivial. But other tasks -- like text positioning, layout and illustration -- are much easier with tools designed for manually manipulating SVGs, like Illustrator or Inkscape. This talk will discuss different techniques that Bloomberg Graphics uses to combine the two approaches.  -->
 
 
 ## D3 is great at animating data
@@ -46,12 +48,20 @@
 ## D3 struggles with illustration
 
 
+<!-- By strategically placing illustrated elements in groups and loading an SVG in a browser, we can add rudimentary animations with d3.timer and d3.transition. Smoothly changing transform, translate and/or rotate over time creates the illusion of movement. Toggling the opacity of an arm or another object drawn in two different positions also brings static images to life.  -->
 
-####Adding Animation
 
-http://www.bloomberg.com/graphics/2015-march-madness-gambling/
+## Adding Animation
 
-By strategically placing illustrated elements in groups and loading an SVG in a browser, we can add rudimentary animations with d3.timer and d3.transition. Smoothly changing transform, translate and/or rotate over time creates the illusion of movement. Toggling the opacity of an arm or another object drawn in two different positions also brings static images to life. 
+![march](img/march.gif)
+
+bloomberg.com/graphics/2015-march-madness-gambling/
+[http://www.bloomberg.com/graphics/2015-march-madness-gambling/]()
+
+
+## Adding Animation - Load the SVG
+
+
 
 
 ####Adding Interaction
