@@ -56,7 +56,7 @@
 [bloomberg.com/graphics/2015-march-madness-gambling](http://www.bloomberg.com/graphics/2015-march-madness-gambling/)
 
 
-## Adding Animation - Load the SVG
+## Load the SVG
 
 <p class='lh'>Client Side</p>
 
@@ -75,21 +75,70 @@
     fs.writeFileSync('index.html', html)
 
 
-## Adding Animation - Arm Wave
+## Arm Wave
 
 ![waving](img/waving.svg)
 
     d3.timer(function(t){
-      d3.select('#arm2a').attr('display', t % 1000 <  700 ? '' : 'none')
-      d3.select('#arm2b').attr('display', t % 1000 >= 700 ? '' : 'none')
+      d3.select('#arm2a').classed('visable', t % 1000 <  7005)
+      d3.select('#arm2b').classed('visable', t % 1000 >= 7005)
     })
 
 
-####Adding Interaction
+## Arm Rotation
+
+![waving](img/waving.svg)
+
+    d3.timer(function(t){
+      d3.select('#svg2 #arm1').attr('transform', 
+        'rotate(' + Math.cos(t/800)*10 + ' 320 250)')
+    })
+
+
+## Animating Bars
+
+![waving](img/bbfund.gif)
+
+[bloomberg.com/graphics/2015-march-madness-basketball-fund/](http://www.bloomberg.com/graphics/2015-march-madness-basketball-fund/)
+
+
+<!-- Beyond creating gif-like loops (with vectors and a full color palette), SVG animations can be trigged by user interactions. Changing the stroke-dashoffset while scrolling down the page looks quite nice while being simple to implement. Bar charts are also easy to add a flourish to - just save the drawn heights, set the heights to 0 on load and use a staggered transition to move them back to their original positions. -->
+
+## Animating Bars
+
+<p class='lh'>Save <m>height</m> and <m>y</m>, then set both to 0</p> 
+
+    d3.selectAll("#tv-revenue rect").each(function(){
+      var sel = d3.select(this)
+      var d = {height: sel.attr('height'), y: sel.attr('y')}
+
+      sel.attr({height: 0, y: d.y + d.height})
+          .datum(d)
+    })
+
+<p class='lh'>Transition <m>height</m> and <m>y</m> back to original values</p> 
+
+    function animate(){
+      d3.selectAll("#tv-revenue rect")
+        .transition().delay(function(d, i){ return i*25 + 200 })
+          .attr('height', function(d){ return d.height })
+          .attr('y',      function(d){ return d.y })
+    }
+
+
+
+## Adding Scroll Interaction
+    var animations = []
+    animations.push({
+      animateFn: animate, 
+      startHeight: d3.selectAll("#tv-revenue").node()
+                    .getBoundingClientRect().top 
+    })
+
+
 
 http://www.bloomberg.com/graphics/2015-nfl-super-bowl-salary/
 
-Beyond creating gif-like loops (with vectors and a full color palette), SVG animations can be trigged by user interactions. Changing the stroke-dashoffset while scrolling down the page looks quite nice while being simple to implement. Bar charts are also easy to add a flourish to - just save the drawn heights, set the heights to 0 on load and use a staggered transition to move them back to their original positions.
 
 
 ####There and Back Again
