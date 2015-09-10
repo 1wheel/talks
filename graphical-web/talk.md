@@ -1,6 +1,6 @@
 # Manual and programmatic manipulation of SVGs
 
-[1wheel.github.io/talks/graphical-web](http://1wheel.github.io/talks/graphical-web/#/)
+<!-- [1wheel.github.io/talks/graphical-web](http://1wheel.github.io/talks/graphical-web/#/) -->
 
 
 ## Adam Pearce
@@ -168,7 +168,7 @@
 In addition to creating SVGs from scratch in Illustrator and animating them with D3, we've also used D3 to transform data to an SVG, then saved the SVG and opened it with Illustrator to clean up positioning. This technique is particularly useful for tidying up force layouts. 
  -->
 
-## Making a force layout static
+## Freezing a force layout
 
 ![force](img/auto-force.gif)
 
@@ -186,15 +186,71 @@ SVGs can be saved from the browser with SVG crowbar or copying and pasting 'Edit
 - Or copy/paste from the element inspector
 
 
-If you just need to position things, d3.drag is a solid alternative to Illustrator. For a few elements, console.log the coordinates and copy/paste to a config file; for a lot, save the positions to an array of objects and save to a csv with copy(d3.csv.format(positions)).
+## SVG -> Coordinates 
+
+<p class='lh'>Position each circle in illustrator</p>
+
+<p class='lh'>Convert to circles to coordinates</p>
+
+    d3.range(slides).forEach(function(num){
+      d3.xml('svg/' + num + '.svg', function(svg){
+        d3.select(svg).selectAll('#auto-group > g').each(function(){
+          var el = d3.select(this)
+          var datum = _.findWhere(data, {modelNum: el.attr('id')})
+
+          var x = el.attr('transform').split(',')[0].split('(')[1]
+          var y = el.attr('transform').split(',')[1].split(')')[0]
+
+          datum[num + 'pos'] = [x, y].map(Math.round)
+        })
+      })
+    })
+
+<p class='lh'>Render with D3</p>
+
+
+## Frozen force layout 
+
+http://www.bloomberg.com/graphics/2015-auto-sales/
+
+<!-- If you just need to position things, d3.drag is a solid alternative to Illustrator. For a few elements, console.log the coordinates and copy/paste to a config file; for a lot, save the positions to an array of objects and save to a csv with copy(d3.csv.format(positions)). -->
+## Position labels with D3
+
+    var drag = d3.behavior.drag()
+        .on('drag', function(d){
+          var pos = d3.mouse(c.svg.node())
+          var x = pos[0] - d3.select(this).attr('x')
+          var y = pos[1] - d3.select(this).attr('y')
+          var offset = [x, y].map(Math.round)
+
+          labelOffsets[d.name] = offset
+          d3.select(this).translate(offset)
+        })
+
+    c.svg.selectAll('text.name').call(drag)
+
+<p class='lh'>Save with copy/paste</p>
+    
+    copy(playerLabelOffsets)
+
+[roadtolarissa.com/stacked-bump](http://roadtolarissa.com/stacked-bump/)
 
 
 Don't be afraid to experiment with creating your own tools - shrinking the feedback loop between making a change and seeing pays off in unexpected ways.
 
 
-####Responsiveness
+## Responsive
 
 We use viewport resizing or css transform scale until the text gets too small and then switch to fallback images. ai2html has a more robust solution, converting text elements to absolutely positioned divs that support text wrapping. 
+
+
+## More examples
+
+http://www.bloomberg.com/graphics/2015-pace-of-social-change/
+
+http://www.bloomberg.com/politics/graphics/2014-who-votes-in-midterms/
+
+http://www.bloomberg.com/graphics/2015-irs-income-tax/
 
 
 ## Related work
