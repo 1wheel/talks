@@ -128,21 +128,47 @@
 
 
 ## Adding Scroll Interaction
+<p class='lh'>Create array of animation objects</p> 
+
     var animations = []
     animations.push({
       animateFn: animate, 
       startHeight: d3.selectAll("#tv-revenue").node()
-                    .getBoundingClientRect().top 
+                     .getBoundingClientRect().top 
+                     - pageYOffset - innerHeight*1/2
+    })
+
+<p class='lh'>Animate when scrolled into view</p> 
+
+    d3.select(window).on('scroll.lineAnimate', function(){
+      animations
+        .filter(function(d){
+          return !d.started && d.startHeight < pageYOffset })
+        .forEach(function(d){
+          d.started = true
+          d.animateFn()
+        })
     })
 
 
+## Lots of possibilities
 
-http://www.bloomberg.com/graphics/2015-nfl-super-bowl-salary/
+- Clip Path
+- Stroke Dash Array
+- Transform
+- ??? 
+
+![waving](img/super.gif)
+
+[bloomberg.com/graphics/2015-nfl-super-bowl-salary/](http://www.bloomberg.com/graphics/2015-nfl-super-bowl-salary/)
 
 
 
-####There and Back Again
+<!-- ####There and Back Again
 In addition to creating SVGs from scratch in Illustrator and animating them with D3, we've also used D3 to transform data to an SVG, then saved the SVG and opened it with Illustrator to clean up positioning. This technique is particularly useful for tidying up force layouts. 
+ -->
+
+
 
   
 ####Work Flow
