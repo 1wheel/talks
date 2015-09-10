@@ -168,11 +168,22 @@
 In addition to creating SVGs from scratch in Illustrator and animating them with D3, we've also used D3 to transform data to an SVG, then saved the SVG and opened it with Illustrator to clean up positioning. This technique is particularly useful for tidying up force layouts. 
  -->
 
+## Making a force layout static
+
+![force](img/auto-force.gif)
 
 
-  
-####Work Flow
+<!-- ####Work Flow
 SVGs can be saved from the browser with SVG crowbar or copying and pasting 'Edit as HTML.' It's a little trickier to load SVGs in the browser. d3.xml can load and append an SVG to the page, but it doesn't work with IE9 and adds a network so a build step might be necessary.  
+ -->
+
+## D3 -> SVG
+
+- [SVG Crowbar](http://nytimes.github.io/svg-crowbar/)
+
+![chrome-dev tools](img/edit-html.png)
+
+- Or copy/paste from the element inspector
 
 
 If you just need to position things, d3.drag is a solid alternative to Illustrator. For a few elements, console.log the coordinates and copy/paste to a config file; for a lot, save the positions to an array of objects and save to a csv with copy(d3.csv.format(positions)).
@@ -182,4 +193,14 @@ Don't be afraid to experiment with creating your own tools - shrinking the feedb
 
 
 ####Responsiveness
+
 We use viewport resizing or css transform scale until the text gets too small and then switch to fallback images. ai2html has a more robust solution, converting text elements to absolutely positioned divs that support text wrapping. 
+
+
+## Related work
+- [species-in-pieces.com](http://www.species-in-pieces.com/#)
+- [github.com/bendc/animateplus](https://github.com/bendc/animateplus)
+- [maxwellito.github.io/vivus](http://maxwellito.github.io/vivus/)
+- [snapsvg.io](http://snapsvg.io/)
+- [bonsaijs.org](https://bonsaijs.org/)
+- ![come work with us!!!](http://www.bloomberg.com/graphics/2015-auto-sales/img/graphicslogo.png)
