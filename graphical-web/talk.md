@@ -255,7 +255,8 @@ http://www.bloomberg.com/graphics/2015-irs-income-tax/
 
 
 ## Related work
-- [species-in-pieces.com](http://www.species-in-pieces.com/#)
+- [ai2html.org/](http://ai2html.org/)
+- [github.com/svg/svgo](https://github.com/svg/svgo)
 - [github.com/bendc/animateplus](https://github.com/bendc/animateplus)
 - [maxwellito.github.io/vivus](http://maxwellito.github.io/vivus/)
 - [snapsvg.io](http://snapsvg.io/)
