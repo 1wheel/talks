@@ -2,6 +2,8 @@
 
 <!-- [1wheel.github.io/talks/graphical-web](http://1wheel.github.io/talks/graphical-web/#/) -->
 
+<m style='font-size: 20px; position: relative; top: 100px;'>Copyright 2015 Bloomberg L.P. All rights reserved</m>
+
 
 ## Adam Pearce
 - [roadtolarissa.com](http://roadtolarissa.com)
@@ -11,7 +13,6 @@
 
 
 <!-- Over the last few years, the acceleration of client-side javascript and development of D3 has enabled the creation of increasingly sophisticated interactive visualizations. Transforming data into an SVG with D3 makes many previously difficult tasks trivial. But other tasks -- like text positioning, layout and illustration -- are much easier with tools designed for manually manipulating SVGs, like Illustrator or Inkscape. This talk will discuss different techniques that Bloomberg Graphics uses to combine the two approaches.  -->
-
 
 ## D3 is great at encoding data
 
@@ -80,8 +81,8 @@
 ![waving](img/waving.svg)
 
     d3.timer(function(t){
-      d3.select('#arm2a').classed('visable', t % 1000 <  7005)
-      d3.select('#arm2b').classed('visable', t % 1000 >= 7005)
+      d3.select('#arm2a').classed('visable', t % 1000 <  700)
+      d3.select('#arm2b').classed('visable', t % 1000 >= 700)
     })
 
 
