@@ -1,8 +1,8 @@
 # Manual and programmatic manipulation of SVGs
 
-<!-- [1wheel.github.io/talks/graphical-web](http://1wheel.github.io/talks/graphical-web/#/) -->
+[1wheel.github.io/talks/graphical-web](http://1wheel.github.io/talks/graphical-web/#/)
 
-<m style='font-size: 20px; position: relative; top: 100px;'>Copyright 2015 Bloomberg L.P. All rights reserved</m>
+<m style='font-size: 15px; position: relative; top: 100px;'>Copyright 2015 Bloomberg L.P. All rights reserved</m>
 
 
 ## Adam Pearce
@@ -88,10 +88,10 @@
 
 ## Arm Rotation
 
-![waving](img/waving.svg)
+![waving](img/rotating.svg)
 
     d3.timer(function(t){
-      d3.select('#svg2 #arm1').attr('transform', 
+      d3.select('#arm1').attr('transform', 
         'rotate(' + Math.cos(t/800)*10 + ' 320 250)')
     })
 

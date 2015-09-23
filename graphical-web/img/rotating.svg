@@ -68,12 +68,12 @@
 </g>
 <g id="arm1">
                          <g>
-                                                  <path fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M317.1,256.1l-4.6-2
+                                                  <path fill="#FFFFFF" stroke="steelblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" d="M317.1,256.1l-4.6-2
                                                                            l-16.5,0.6l-54.8-36.4l12.9-19.3c0,0,47.2,30.7,51.8,27.3c10.6-7.8,23.2-7.6,23.2-7.6"/>
-                                                  <polygon fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" points="251.4,203.1 
+                                                  <polygon fill="#FFFFFF" stroke="steelblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" points="251.4,203.1 
                                                                            239,187.5 222.1,187.5 218.1,203.1 244.3,213.7                              "/>
                                                   
-                                                                           <line fill="none" stroke="#000000" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="228.3" y1="196.6" x2="135.2" y2="187.7"/>
+                                                                           <line fill="none" stroke="steelblue" stroke-width="4" stroke-linecap="round" stroke-miterlimit="10" x1="228.3" y1="196.6" x2="135.2" y2="187.7"/>
                          </g>
 </g>
 <g id="other">
@@ -201,17 +201,17 @@
 </g>
 <g id="arm2b">
                          <g>
-                                                  <polygon fill="rgba(255,255,255,.3)" stroke="steelblue" stroke-width="4" stroke-miterlimit="10" points="723.3,150.3 730.5,135.5 730.1,120.9 
+                                                  <polygon fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="723.3,150.3 730.5,135.5 730.1,120.9 
                                                                            729.6,108.2 721.7,109.6 721.8,123.1 710,131.6 714.6,149.5                                           "/>
-                                                  <polyline fill="rgba(255,255,255,.3)" stroke="steelblue" stroke-width="4" stroke-miterlimit="10" points="750,265.7 707,232 696.7,209.8 
+                                                  <polyline fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="750,265.7 707,232 696.7,209.8 
                                                                            708,154.4 726.7,157 723.4,212 753.7,220.3                                  "/>
                          </g>
 </g>
 <g id="arm2a">
                          <g>
-                                                  <polygon fill="rgba(255,255,255,.3)" stroke="#d62728" stroke-width="4" stroke-miterlimit="10" points="647.1,224.1 632,217.6 617.4,218.8 
+                                                  <polygon fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-miterlimit="10" points="647.1,224.1 632,217.6 617.4,218.8 
                                                                            604.7,219.9 606.5,227.7 620,226.9 629.1,238.3 646.8,232.7                                           "/>
-                                                  <path fill="rgba(255,255,255,.3)" stroke="#d62728" stroke-width="4" stroke-miterlimit="10" d="M750.834,264.425L715,248.8l-7.1-1.2l-55.9-8.5
+                                                  <path fill="#FFFFFF" stroke="#000000" stroke-width="4" stroke-miterlimit="10" d="M750.834,264.425L715,248.8l-7.1-1.2l-55.9-8.5
                                                                            l1.6-18.8c0,0,92.4,1.3,98.2-0.2"/>
                          </g>
 </g>
@@ -239,4 +239,5 @@
                          </g>
 </g>
 <rect x="608.5" y="347.1" width="37.5" height="4.892"/>
+<circle fill='#d62728' cx='320' cy='250' r='10'/>
 </svg>
