@@ -140,18 +140,21 @@
 
 
 				d3.selectAll('img')
-						.filter(function(d){
-							return d3.select(this).attr('src') == 'img/waving.svg' 
-									|| d3.select(this).attr('src') == 'img/rotating.svg' })
-						.style('background-color', 'white')
-
-				d3.selectAll('img')
 						.style({'max-height': '500px'})						
 					.filter(function(d){ return d3.select(this).attr('src') == 'img/super.gif' })
 						.style({'margin-top': -330 + 'px', opacity: .2})
 						.each(function(){
 							d3.select(this.parentNode).style({position: 'relative', 'z-index': -100})
 						})
+
+
+				
+				d3.selectAll('img')
+						.filter(function(d){
+							return d3.select(this).attr('src') == 'img/waving.svg' 
+									|| d3.select(this).attr('src') == 'img/rotating.svg' })
+						.style('background-color', 'white')
+						.style({'max-height': '400px'})						
 
 				// hljs.initHighlightingOnLoad()
 

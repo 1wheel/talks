@@ -44,6 +44,8 @@
 
 ## D3 struggles with layout
 
+![waggoner](img/layout.png)
+
 
 ## D3 struggles with illustration
 
