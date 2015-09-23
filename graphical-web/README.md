@@ -214,6 +214,8 @@ SVGs can be saved from the browser with SVG crowbar or copying and pasting 'Edit
 
 ## Frozen force layout 
 
+![force](img/auto-frozen.gif)
+
 http://www.bloomberg.com/graphics/2015-auto-sales/
 
 
