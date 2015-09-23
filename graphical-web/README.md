@@ -214,6 +214,7 @@ SVGs can be saved from the browser with SVG crowbar or copying and pasting 'Edit
 
 http://www.bloomberg.com/graphics/2015-auto-sales/
 
+
 <!-- If you just need to position things, d3.drag is a solid alternative to Illustrator. For a few elements, console.log the coordinates and copy/paste to a config file; for a lot, save the positions to an array of objects and save to a csv with copy(d3.csv.format(positions)). -->
 ## Position labels with D3
 
@@ -237,14 +238,6 @@ http://www.bloomberg.com/graphics/2015-auto-sales/
 [roadtolarissa.com/stacked-bump](http://roadtolarissa.com/stacked-bump/)
 
 
-Don't be afraid to experiment with creating your own tools - shrinking the feedback loop between making a change and seeing pays off in unexpected ways.
-
-
-## Responsive
-
-We use viewport resizing or css transform scale until the text gets too small and then switch to fallback images. ai2html has a more robust solution, converting text elements to absolutely positioned divs that support text wrapping. 
-
-
 ## More examples
 
 http://www.bloomberg.com/graphics/2015-pace-of-social-change/
@@ -252,6 +245,19 @@ http://www.bloomberg.com/graphics/2015-pace-of-social-change/
 http://www.bloomberg.com/politics/graphics/2014-who-votes-in-midterms/
 
 http://www.bloomberg.com/graphics/2015-irs-income-tax/
+
+
+## Difficulties 
+
+- Responsive
+- Illustrator removes classes
+- Illustrator struggles with images and fonts 
+
+
+Learn about skills sets and tools 'orthogonal' to your own 
+
+
+Experiment creating your own tools to shrink the feedback loop
 
 
 ## Related work
