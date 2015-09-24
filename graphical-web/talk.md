@@ -258,7 +258,7 @@ http://www.bloomberg.com/graphics/2015-irs-income-tax/
 - Illustrator struggles with images and fonts 
 
 
-Learn about skills sets and tools orthogonal to your own 
+Learn about tools and skills orthogonal to your own 
 
 
 Experiment creating your own tools to shrink the feedback loop
