@@ -1,15 +1,16 @@
-# Streching and Shrinking Time
+# Stretching and Shrinking Time
 
 ## Abstract
 
-Time is typically displayed as a linear mapping between 
+Time is typically visualized by creating a linear mapping from time to position on a chart. This talk will explore ways of manipulating that mapping to highlight interesting aspects of temporal data. We'll examine redundant position encodings, cycles, binning, setting offsets. ways of encoding time besides position, like sound, color and time itself.  We'll also look at mathematical techniques to find trends and seasonality in data, along with different ways of visualizing those findings.  
 
 ## Notes
-
+I'd really walk through single dataset and show how to manipulate it in different ways with d3. Even if code examples would make the talk too long to include, using a single dataset as a thread would be helpful. 
 
 ## Graphs
 - http://www.bloomberg.com/graphics/2015-spoofing/
 - http://blogs.ft.com/ftdata/2015/11/22/next-generation-mens-tennis/
+- https://xkcd.com/1491/
 - http://roadtolarissa.com/data-exploration/
 - https://districtdatalabs.silvrback.com/time-maps-visualizing-discrete-events-across-many-timescales
 - http://online.wsj.com/public/resources/documents/Comparing-Four-NFL-Games.html
@@ -32,11 +33,13 @@ Time is typically displayed as a linear mapping between
 - http://robjhyndman.com/seminars/big-time-series/
 - https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
 - http://jackschaedler.github.io/circles-sines-signals/dft_introduction.html
-- 
+- The log
+
 ## Misc
 - http://www.visualizingtime.net/
+- http://www.smithsonianmag.com/arts-culture/5-12-examples-of-experimental-music-notation-92223646/?no-ist
 
 ## Books
 - Cleveland carbon PPM trend decomposition
 - Grammer of Graphics "Transformations of the Plan" and "Graphing Time"  
-
+- Munzner on attribute types + analysis framework
