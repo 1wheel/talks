@@ -2,14 +2,16 @@
 
 ## Abstract
 
-Time is typically visualized by creating a linear mapping from time to position on a chart. This talk will explore ways of manipulating that mapping to highlight interesting aspects of temporal data. We'll examine redundant position encodings, cycles, binning, setting offsets. ways of encoding time besides position, like sound, color and time itself.  We'll also look at mathematical techniques to find trends and seasonality in data, along with different ways of visualizing those findings.  
+Time is typically visualized by creating a linear mapping from time to position on a chart. This talk will explore ways of manipulating that mapping to highlight interesting aspects of temporal data. We will examine other ways of using position, including radial visualizations of cyclical data, redundantly encoding time, offsets to show duration, and binning. We will also look at and listen to ways of encoding time besides position, like sound, color and, of course, time itself. Finally, we'll briefly cover mathematical techniques to find trends and seasonality in data, along with ways of visualizing those findings. 
+
 
 ## Notes
-I'd really walk through single dataset and show how to manipulate it in different ways with d3. Even if code examples would make the talk too long to include, using a single dataset as a thread would be helpful. 
+I'd really walk through single dataset and show how to manipulate it with d3. Even if code examples would make the talk too long to include, using a single dataset as a thread would be helpful. 
 
 ## Graphs
 - http://www.bloomberg.com/graphics/2015-spoofing/
 - http://blogs.ft.com/ftdata/2015/11/22/next-generation-mens-tennis/
+- http://poppyfield.org/
 - https://xkcd.com/1491/
 - http://roadtolarissa.com/data-exploration/
 - https://districtdatalabs.silvrback.com/time-maps-visualizing-discrete-events-across-many-timescales
@@ -17,10 +19,11 @@ I'd really walk through single dataset and show how to manipulate it in differen
 - http://roadtolarissa.com/twisters/
 - http://www.frivoletics.com/spans/mlb/
 - http://www.nytimes.com/interactive/2011/01/02/business/20110102-metrics-graphic.html
-- http://www.nytimes.com/interactive/2010/02/26/sports/olympics/20100226-olysymphony.html
 - http://www.nytimes.com/interactive/2015/06/04/us/politics/stacking-up-the-presidential-fields.html
 - http://www.nytimes.com/interactive/2010/02/02/us/politics/20100201-budget-porcupine-graphic.html
 - http://www.nytimes.com/interactive/2009/07/02/business/economy/20090705-cycles-graphic.html
+- http://www.nytimes.com/interactive/2010/02/26/sports/olympics/20100226-olysymphony.html
+- http://www.davidrumsey.com/luna/servlet/detail/RUMSEY~8~1~248974~5516374:Isochronic-Distance-Chart,-1904--Av
 - http://qz.com/432787/the-origin-of-leap-seconds-and-why-they-should-be-abolished/
 - http://andywoodruff.com/blog/where-to-hate-daylight-saving-time-and-where-to-love-it/
 
