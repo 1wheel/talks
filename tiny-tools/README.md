@@ -2,7 +2,7 @@
 
 ## Abstract
 
-Reusing D3 code is hard. We're constantly trying to come up with novel designs, ways of encoding data and push technical envelope forward, which makes it difficult to simultaneously write code that is composable and reusable. This talk will discuss the tiny tools we've used and developed at Bloomberg Graphics to sketch charts with code faster, reduce the amount copying/pasting we do, move between illustrator & D3 easier, pick colors and more. 
+Reusing D3 code is hard. We're constantly trying to come up with novel designs and ways of encoding data, making it difficult to write code that is also composable and reusable. This talk will discuss the tiny tools we've used and developed at Bloomberg Graphics to sketch charts with code more quickly, reduce the amount of required copying/pasting, make it easier to move between illustrator and D3, simplify color selection, and more.
 
 
 ## Notes
