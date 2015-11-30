@@ -36,7 +36,6 @@ I'd really walk through single dataset and show how to manipulate it with d3. Ev
 - http://robjhyndman.com/seminars/big-time-series/
 - https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average
 - http://jackschaedler.github.io/circles-sines-signals/dft_introduction.html
-- The log
 
 ## Misc
 - http://www.visualizingtime.net/
@@ -46,3 +45,4 @@ I'd really walk through single dataset and show how to manipulate it with d3. Ev
 - Cleveland carbon PPM trend decomposition
 - Grammer of Graphics "Transformations of the Plan" and "Graphing Time"  
 - Munzner on attribute types + analysis framework
+- The Log 
