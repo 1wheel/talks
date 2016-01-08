@@ -22,6 +22,7 @@ This talk would be similar to [Alyson's last year](https://www.youtube.com/watch
 - http://vis4.net/blog/posts/avoid-equidistant-hsv-colors/
 - Meeks on layouts ?
 - Annotation placement
+- SVG to cord https://github.com/1wheel/talks/tree/master/graphical-web#svg---coordinates
 - https://github.com/Quartz/aml-gdoc-server
 
 ## From Michael 
