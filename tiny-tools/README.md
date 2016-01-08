@@ -20,4 +20,14 @@ This talk would be similar to [Alyson's last year](https://www.youtube.com/watch
 - http://archieml.org/
 - https://quartz.github.io/Chartbuilder/
 - http://vis4.net/blog/posts/avoid-equidistant-hsv-colors/
-- Meeks on layouts
+- Meeks on layouts ?
+- Annotation placement
+- https://github.com/Quartz/aml-gdoc-server
+
+## From Michael 
+
+- scraping https://github.com/mhkeller/alphabits
+- reading / writing data https://github.com/mhkeller/indian-ocean
+- joining data https://github.com/mhkeller/joiner
+- point in polygon https://github.com/veltman/wherewolf
+- scales altho d3_scale might make this no longer needed https://gist.github.com/aubergene/7791133, packaged version: http://bl.ocks.org/mhkeller/d1523b23097cd58e0534
