@@ -10,10 +10,20 @@
 - [github.com/1wheel](https://github.com/1wheel)
 - [@adamrpearce](https://twitter.com/adamrpearce)
 
-
-<!-- 
-  hired to develop explorative interactive data products
-
--->
+e
+<!-- started at bloomberg two years ago, hired to develop explorative interactive data products -->
 ## 
 ![visual-data](img/visual-data.png)
+
+
+<!-- complex interactions with lots of screens -->
+##
+![billionaris gif](img/bill.gif)
+
+
+<!--  -->
+## Big tools
+![angular/backbone/ember img](img/)
+Within a project, reuse code with compentent
+Between projects, reuse framework abstractions
+
