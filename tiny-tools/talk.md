@@ -10,15 +10,14 @@
 - [github.com/1wheel](https://github.com/1wheel)
 - [@adamrpearce](https://twitter.com/adamrpearce)
 
-e
 <!-- started at bloomberg two years ago, hired to develop explorative interactive data products -->
 ## 
 ![visual-data](img/visual-data.png)
 
 
 <!-- complex interactions with lots of screens -->
-##
-![billionaris gif](img/bill.gif)
+## Bloomberg Billionaires
+![billionaires gif](img/bill.gif)
 
 
 <!--  -->
@@ -27,3 +26,10 @@ e
 Within a project, reuse code with compentent
 Between projects, reuse framework abstractions
 
+
+<!--  start to publish interactive work on a weekly and daily basis intead of monthly -->
+## Transitioning to a traditional graphics desk
+![every project](http://www.bloomberg.com/graphics/2015-in-graphics/)
+
+
+<!--  frameworks are too unweildly -->
