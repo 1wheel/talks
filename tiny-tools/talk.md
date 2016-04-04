@@ -18,7 +18,7 @@
 
 
 <!-- complex interactions with lots of screens -->
-![billionaires gif](http://christophercannon.net/images/billionaires/billionaires-1-explore.png)
+![billionaires gif](img/billionaires.png)
 [bloomberg.com/billionaires](http://www.bloomberg.com/billionaires/)
 
 
@@ -299,7 +299,7 @@ Simple scrolling events for d3 graphs
 
 
 
-![scroll splash](http://vallandingham.me/images/vis/scroll/talk.png)
+![scroll splash](img/scroll_talk.png)
 [vallandingham.me/scroll_talk/](http://vallandingham.me/scroll_talk/)
 
 
