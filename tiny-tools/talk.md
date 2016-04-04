@@ -10,14 +10,16 @@
 - [github.com/1wheel](https://github.com/1wheel)
 - [@adamrpearce](https://twitter.com/adamrpearce)
 
+
 <!-- started at bloomberg two years ago, hired to develop explorative interactive data products -->
 ## 
 ![visual-data](img/visual-data.png)
+[bloomberg.com/visual-data](http://www.bloomberg.com/visual-data)
 
 
 <!-- complex interactions with lots of screens -->
-## Bloomberg Billionaires
-![billionaires gif](img/bill.gif)
+![billionaires gif](http://christophercannon.net/images/billionaires/billionaires-1-explore.png)
+[bloomberg.com/billionaires](http://www.bloomberg.com/billionaires/)
 
 
 <!--  -->
@@ -64,16 +66,16 @@ default on techiqal debt!
 
 'simple' scatterplot: 48 lines and 1398 characters of code
 ````
-d3.tsv("data.tsv", function(error, data) {
+d3.tsv('data.tsv', function(error, data) {
   var margin = {top: 20, right: 20, bottom: 30, left: 40},
       width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
-  var svg = d3.select("body").append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-    .append("g")
-      .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+  var svg = d3.select('body').append('svg')
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height + margin.top + margin.bottom)
+    .append('g')
+      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
   
   var x = d3.scale.linear()
       .range([0, width]);
@@ -85,32 +87,32 @@ d3.tsv("data.tsv", function(error, data) {
 
   var xAxis = d3.svg.axis()
       .scale(x)
-      .orient("bottom");
+      .orient('bottom');
 
   var yAxis = d3.svg.axis()
       .scale(y)
-      .orient("left");
+      .orient('left');
 
   x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
   y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
 
-  svg.append("g")
-      .attr("class", "x axis")
-      .attr("transform", "translate(0," + height + ")")
+  svg.append('g')
+      .attr('class', 'x axis')
+      .attr('transform', 'translate(0,' + height + ')')
       .call(xAxis)
 
-  svg.append("g")
-      .attr("class", "y axis")
+  svg.append('g')
+      .attr('class', 'y axis')
       .call(yAxis)
 
-  svg.selectAll(".dot")
+  svg.selectAll('.dot')
       .data(data)
-    .enter().append("circle")
-      .attr("class", "dot")
-      .attr("r", 3.5)
-      .attr("cx", function(d) { return x(d.sepalWidth); })
-      .attr("cy", function(d) { return y(d.sepalLength); })
-      .style("fill", function(d) { return color(d.species); });
+    .enter().append('circle')
+      .attr('class', 'dot')
+      .attr('r', 3.5)
+      .attr('cx', function(d) { return x(d.sepalWidth); })
+      .attr('cy', function(d) { return y(d.sepalLength); })
+      .style('fill', function(d) { return color(d.species); });
 });
 ````
 
@@ -151,18 +153,18 @@ Before
 
 ````javascript
 svg.append('g')
-    .attr('class', 'y axis')
+    .attr('id', '#y-axis')
     .call(yAxis)
   .append('text')
-    .attr('class', 'label')
+    .attr('class', 'label number')
 ````
 
 After
 
 ````javascript
-svg.append('g.y.axis')
+svg.append('g#y-axis')
     .call(yAxis)
-  .append('text.label')
+  .append('text.label.number')
 ````
 
 
@@ -187,13 +189,117 @@ y.domain(d3.extent(data, ƒ('sepalLength')))
 ````
 
 
+<!--  gregor stopped responding pull requests - realized i could just make my own!-->
 ##d3-starterkit
-Snippets and conventions for starting a new d3 project
+Snippets and conventions for d3
 
 [github.com/1wheel/d3-starterkit](https://github.com/1wheel/d3-starterkit)
 
 
+<!-- only just enter exit update if you need it! -->
+##dataAppend
+Before
+
+````javascript
+svg.selectAll('.dot')
+    .data(data)
+  .enter().append('circle.dot')
+````
+
+After
+
+````javascript
+svg.dataAppend(data, 'circle.dot')
+````
 
 
+<!-- no more google around for the margin conventention bl.ock -->
+##d3.conventions - margins
+Before
+
+````javascript
+var margin = {top: 20, right: 20, bottom: 30, left: 40},
+    width = 960 - margin.left - margin.right,
+    height = 500 - margin.top - margin.bottom;
+
+var svg = d3.select('body').append('svg')
+    .attr('width', width + margin.left + margin.right)
+    .attr('height', height + margin.top + margin.bottom)
+  .append('g')
+    .attr('transform', 
+      'translate(' + margin.left + ',' + margin.top + ')')
+````
+
+After
+````javascript
+var c = d3.conventions({
+  margin: {top: 20, right: 20, bottom: 30, left: 40},
+  width:  960,
+  height: 500,
+})
+````
+
+
+<!--  sets the range of linear scales and links them to axis -->
+##d3.conventions - scales
+Creates and configures scales and axii
+
+Before
+
+````javascript
+var x = d3.scale.linear()
+    .range([0, width])
+    .domain(d3.extent(data, ƒ('sepalWidth')))
+
+var y = d3.scale.linear()
+    .range([height, 0])
+    .domain(d3.extent(data, ƒ('sepalLength')))
+````
+
+After
+````javascript
+c.x.domain(d3.extent(data, ƒ('sepalWidth')))
+c.y.domain(d3.extent(data, ƒ('sepalLength')))
+
+c.drawAxis()
+````
+
+
+<!-- 
+  much eaiser to sketch with d3. can make 3 or 4 or 6 and present rough sketches, and improve the best. looking at the actual data earlier is better 
+  
+  also nice to move from sketch to final polishing more seamlessly - doing prelim work in R or excel would require starting from scracth to add interactivity.
+-->
+##Minimally viable (scatter) plot 
+[Scatter III](http://bl.ocks.org/1wheel/3dfee2b74943398f0550)
+
+````
+d3.tsv('data.tsv', function(data) {
+  var c = d3.conventions()
+  c.x.domain(d3.extent(data, ƒ('sepalWidth')))
+  c.y.domain(d3.extent(data, ƒ('sepalLength')))
+
+  c.drawAxis()
+
+  c.svg.dataAppend(data, 'circle.dot')
+      .attr('r', 3.5)
+      .attr('cx', ƒ('sepalWidth', c.x))
+      .attr('cy', ƒ('sepalLength', c.y))
+      .style('fill', ƒ('species', c.color))
+      .call(d3.attachTooltip)
+})
+````
+
+
+
+##graph-scroll
+Simple scrolling events for d3 graphs
+
+[1wheel.github.io/graph-scroll/](http://1wheel.github.io/graph-scroll/)
+
+
+
+![scroll splash](http://vallandingham.me/images/vis/scroll/talk.png)
+[vallandingham.me/scroll_talk/](http://vallandingham.me/scroll_talk/)
 
 
