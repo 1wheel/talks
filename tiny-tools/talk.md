@@ -291,15 +291,23 @@ d3.tsv('data.tsv', function(data) {
 ````
 
 
-
+<!--  -->
 ##graph-scroll
-Simple scrolling events for d3 graphs
+Simple scrolling events for d3 graphics
 
 [1wheel.github.io/graph-scroll/](http://1wheel.github.io/graph-scroll/)
 
 
 
+<!--  -->
 ![scroll splash](img/scroll_talk.png)
 [vallandingham.me/scroll_talk/](http://vallandingham.me/scroll_talk/)
 
+
+
+<!--  -->
+##swoopy-drag
+Artisanal label placement for d3 graphics
+
+[1wheel.github.io/swoopy-drag/](http://1wheel.github.io/swoopy-drag/)
 
