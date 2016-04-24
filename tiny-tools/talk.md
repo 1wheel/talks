@@ -304,6 +304,20 @@ Simple scrolling events for d3 graphics
 [vallandingham.me/scroll_talk/](http://vallandingham.me/scroll_talk/)
 
 
+##Steppers
+[![](img/stepper-pres.png)](http://www.bloomberg.com/politics/articles/2014-11-25/when-do-presidential-candidates-announce)
+
+[![](img/stepper-gov.png)](http://www.bloomberg.com/politics/graphics/2014-incumbent-governors/)
+
+
+
+##Open Source
+- Awkward combination of css/html/js
+- Flexibilty/ease of use tradeoff
+- Needs better examples
+
+![scroll splash](img/scroll-tweet.png)
+
 
 <!--  -->
 ##swoopy-drag
@@ -312,11 +326,75 @@ Artisanal label placement for d3 graphics
 [1wheel.github.io/swoopy-drag/](http://1wheel.github.io/swoopy-drag/)
 
 
-##queue
+##Other attempts
+- SVG crowbar -> illustator
+- viewport resizing
+- transform scale
+- ai2html
+- http://www.bizweekgraphics.com/swoopyarrows/
 
 
-##d3 is a bunch of tiny tools!
+##Drag in the browser
 
-- scale
-- nest
-- layout
+    var drag = d3.behavior.drag()
+        .on('drag', function(d){
+          var pos = d3.mouse(c.svg.node())
+          var x = pos[0] - d3.select(this).attr('x')
+          var y = pos[1] - d3.select(this).attr('y')
+          var offset = [x, y].map(Math.round)
+
+          labelOffsets[d.name] = offset
+          d3.select(this).translate(offset)
+        })
+
+    c.svg.selectAll('text.name').call(drag)
+
+<p class='lh' style='opacity: 0'>Save with copy/paste</p>
+    
+    > copy(playerLabelOffsets)
+
+[roadtolarissa.com/stacked-bump](http://roadtolarissa.com/stacked-bump/)
+
+
+
+![](img/ft-swoop.png)
+
+[Has Formula One Become Less Competitive?](http://blogs.ft.com/ftdata/2016/03/21/formula-one-competitive-hamilton-schumacher/?Authorised=false&_i_location=http%3A%2F%2Fblogs.ft.com%2Fftdata%2F2016%2F03%2F21%2Fformula-one-competitive-hamilton-schumacher%2F&_i_referer=https%3A%2F%2Ft.co%2F3f9ea32b28f07424a89a839b7dd91732&classification=conditional_standard&iab=barrier-app)
+
+
+## Not quite a library - Insert SVG
+
+<p class='lh'>Client Side</p>
+
+    d3.xml("gambling.svg", "image/svg+xml", function(xml){
+      var el = d3.select('#svg-container')
+      el.node().appendChild(xml.documentElement)
+    })
+
+<p class='lh'>Build Step (works with IE9)</p>
+
+    var html = fs.readFileSync('src.html',     'utf-8')
+    var svg  = fs.readFileSync('gambling.svg', 'utf-8')
+    html = html.replace("id='svg-container'></div>", 
+                        "id='svg-container'>" + svg + "</div>")
+
+    fs.writeFileSync('index.html', html)
+
+
+
+- https://github.com/mbostock/queue
+- http://iros.github.io/patternfills/
+- https://github.com/emeeks/d3.svg.circularbrush
+- https://github.com/mhkeller/indian-ocean
+- http://d3-legend.susielu.com/
+- https://github.com/jasondavies/d3-cloud
+
+
+<!--  -->
+##d3v4 
+https://github.com/d3
+
+
+<!--  -->
+##make your own!
+

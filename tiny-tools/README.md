@@ -20,10 +20,12 @@ This talk would be similar to [Alyson's last year](https://www.youtube.com/watch
 - http://archieml.org/
 - https://quartz.github.io/Chartbuilder/
 - http://vis4.net/blog/posts/avoid-equidistant-hsv-colors/
+- http://iros.github.io/patternfills/
 - Meeks on layouts ?
 - Annotation placement
 - SVG to cord https://github.com/1wheel/talks/tree/master/graphical-web#svg---coordinates
 - https://github.com/Quartz/aml-gdoc-server
+
 
 ## From Michael 
 
