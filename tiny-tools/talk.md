@@ -118,6 +118,7 @@ d3.tsv('data.tsv', function(error, data) {
       .style('fill', function(d) { return color(d.species); });
 });
 ````
+[bl.ocks.org/mbostock/3887118](https://bl.ocks.org/mbostock/3887118)
 
 
 <!--  Gregor made add ons for d3
@@ -275,7 +276,6 @@ c.drawAxis()
   also nice to move from sketch to final polishing more seamlessly - doing prelim work in R or excel would require starting from scracth to add interactivity.
 -->
 ##Minimally viable (scatter) plot 
-[Scatter III](http://bl.ocks.org/1wheel/3dfee2b74943398f0550)
 
 ````
 d3.tsv('data.tsv', function(data) {
@@ -293,6 +293,7 @@ d3.tsv('data.tsv', function(data) {
       .call(d3.attachTooltip)
 })
 ````
+[bl.ocks.org/1wheel/3dfee2b74943398f0550](http://bl.ocks.org/1wheel/3dfee2b74943398f0550)
 
 
 <!--  -->
@@ -379,6 +380,10 @@ Artisanal label placement for d3 graphics
 ![](img/ft-swoop.png)
 
 [Has Formula One Become Less Competitive?](http://blogs.ft.com/ftdata/2016/03/21/formula-one-competitive-hamilton-schumacher/?Authorised=false&_i_location=http%3A%2F%2Fblogs.ft.com%2Fftdata%2F2016%2F03%2F21%2Fformula-one-competitive-hamilton-schumacher%2F&_i_referer=https%3A%2F%2Ft.co%2F3f9ea32b28f07424a89a839b7dd91732&classification=conditional_standard&iab=barrier-app)
+
+
+![](img/dogs.png)
+[America’s Most Popular Breeds](http://www.nationalgeographic.com/magazine/2016/americas-most-popular-dog-breeds/)
 
 
 ## Insert SVG into HTML
