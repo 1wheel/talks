@@ -133,7 +133,11 @@
 
 					if (sel.text() == 'ƒIELD ACCESSOR') sel.style('text-transform', 'none')
 					if (sel.text() == 'dataAppend') sel.style('text-transform', 'none')
-				})   
+				})  
+
+				d3.selectAll('video').on('click', function(){
+					this.play()
+				})
 			});
 
 

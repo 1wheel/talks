@@ -54,14 +54,14 @@ tk tk published in 2015!
 default on techiqal debt!
 -->
 ## frameworks become unwieldy 
-  - unnecessary abstractions 
-  - higher barrier to entry
+  - Unnecessary abstractions 
+  - Higher barrier to entry
 
 
 <!--  -->
 ## reusing code is trickier
-- start project by copying/pasting bl.ocks 
-- forage through old code for useful bits & bobs
+- Start project by copying/pasting bl.ocks 
+- Forage through old code for useful bits & bobs
 
 
 <!-- working with much lower primatives than ggplot or something - tons of flexablitiy, but even doing something simple is hard -->
@@ -314,6 +314,21 @@ Simple scrolling events for d3 graphics
 [![](img/stepper-gov.png)](http://www.bloomberg.com/politics/graphics/2014-incumbent-governors/)
 
 
+<video src='img/color.mov' loop style='max-width: 600px; margin: 0px auto;'></video>
+[roadtolarissa.com/blog/2015/01/04/coloring-maps-with-d3/](http://roadtolarissa.com/blog/2015/01/04/coloring-maps-with-d3/)
+
+
+<video src='img/cars.mov' loop style='max-width: 600px; margin: 0px auto;'></video>
+[bloomberg.com/graphics/2015-auto-sales/](http://www.bloomberg.com/graphics/2015-auto-sales/)
+
+
+<video src='img/warming.mov' loop style='max-width: 600px; margin: 0px auto;'></video>
+[bloomberg.com/graphics/2015-whats-warming-the-world/](http://www.bloomberg.com/graphics/2015-whats-warming-the-world/)
+
+
+<video src='img/ascii.mov' loop style='max-width: 600px; margin: 0px auto;'></video>
+[bloomberg.com/graphics/year-ahead-2016/](http://www.bloomberg.com/graphics/year-ahead-2016/)
+
 
 ##Open Source
 - Awkward combination of css/html/js
@@ -335,7 +350,7 @@ Artisanal label placement for d3 graphics
 - viewport resizing
 - transform scale
 - ai2html
-- http://www.bizweekgraphics.com/swoopyarrows/
+- [bizweekgraphics.com/swoopyarrows/](http://www.bizweekgraphics.com/swoopyarrows/)
 
 
 ##Drag in the browser
@@ -367,7 +382,9 @@ Artisanal label placement for d3 graphics
 
 
 ## Insert SVG into HTML
-<div style='max-width: 500px; margin: 0px auto;'>![](img/layout.png)</div>
+<div style='max-width: 400px; margin: 0px auto;'>![](img/layout.png)</div>
+
+[bloomberg.com/graphics/2015-nfl-super-bowl-salary](http://www.bloomberg.com/graphics/2015-nfl-super-bowl-salary/)
 
 
 ## Not quite a library
@@ -390,12 +407,14 @@ Artisanal label placement for d3 graphics
 
 
 
-- https://github.com/mbostock/queue
-- http://iros.github.io/patternfills/
-- https://github.com/emeeks/d3.svg.circularbrush
-- https://github.com/mhkeller/indian-ocean
-- http://d3-legend.susielu.com/
-- https://github.com/jasondavies/d3-cloud
+- [github.com/mbostock/queue](http://github.com/mbostock/queue)
+- [iros.github.io/patternfills/](http://iros.github.io/patternfills/)
+- [github.com/emeeks/d3.svg.circularbrush](http://github.com/emeeks/d3.svg.circularbrush)
+- [github.com/mhkeller/indian-ocean](http://github.com/mhkeller/indian-ocean)
+- [d3-legend.susielu.com/](http://d3-legend.susielu.com/)
+- [github.com/jasondavies/d3-cloud](http://github.com/jasondavies/d3-cloud)
+- [bl.ocks.org/zanarmstrong/05c1e95bf7aa16c4768e](http://bl.ocks.org/zanarmstrong/05c1e95bf7aa16c4768e)
+- [github.com/WSJ/scroll-watcher](http://github.com/WSJ/scroll-watcher)
 
 
 <!--  -->
