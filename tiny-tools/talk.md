@@ -24,9 +24,9 @@
 
 <!--  -->
 ## Big tools
-![angular/backbone/ember img](img/)
+![angular/backbone/ember img](img/js-fw.png)
 
-- Within a project, reuse code with compentent
+- Within a project, reuse code with components
 
 - Between projects, reuse framework abstractions
 
@@ -36,7 +36,10 @@
 tk tk published in 2015!
 -->
 ## Transitioning to a traditional graphics desk
-![every project](http://www.bloomberg.com/graphics/2015-in-graphics/)
+<video src='img/2015.mov' autoplay loop style='max-width: 600px; margin: 0px auto;'></video>
+
+[bloomberg.com/graphics/2015-in-graphics](http://www.bloomberg.com/graphics/2015-in-graphics/)
+
 
 
 <!-- big frameworks become too unwieldly 
@@ -50,8 +53,8 @@ tk tk published in 2015!
 
 default on techiqal debt!
 -->
-## frameworks become unwieldly 
-  - unnessary abstractions 
+## frameworks become unwieldy 
+  - unnecessary abstractions 
   - higher barrier to entry
 
 
@@ -147,7 +150,7 @@ svg.append('g.x.axis')
 
 
 ##appending with class
-Works with ids and multiple classes
+Works with IDs and multiple classes
 
 Before
 
@@ -173,7 +176,8 @@ svg.append('g#y-axis')
 also composes. no more typing return!!
 
 can do this w/ es6 too, nice not having a build step.  -->
-##ƒIELD ACCESSOR
+<h2 style='text-transform:none'>ƒIELD ACCESSOR</h2>
+
 Before
 
 ````javascript
@@ -201,7 +205,7 @@ Snippets and conventions for d3
 Before
 
 ````javascript
-svg.selectAll('.dot')
+svg.selectAll('circle.dot')
     .data(data)
   .enter().append('circle.dot')
 ````
@@ -242,7 +246,7 @@ var c = d3.conventions({
 
 <!--  sets the range of linear scales and links them to axis -->
 ##d3.conventions - scales
-Creates and configures scales and axii
+Creates and configures scales and axes
 
 Before
 
@@ -266,7 +270,7 @@ c.drawAxis()
 
 
 <!-- 
-  much eaiser to sketch with d3. can make 3 or 4 or 6 and present rough sketches, and improve the best. looking at the actual data earlier is better 
+  much easier to sketch with d3. can make 3 or 4 or 6 and present rough sketches, and improve the best. looking at the actual data earlier is better 
   
   also nice to move from sketch to final polishing more seamlessly - doing prelim work in R or excel would require starting from scracth to add interactivity.
 -->
@@ -313,7 +317,7 @@ Simple scrolling events for d3 graphics
 
 ##Open Source
 - Awkward combination of css/html/js
-- Flexibilty/ease of use tradeoff
+- Flexibility/ease of use trade-off
 - Needs better examples
 
 ![scroll splash](img/scroll-tweet.png)
@@ -327,7 +331,7 @@ Artisanal label placement for d3 graphics
 
 
 ##Other attempts
-- SVG crowbar -> illustator
+- SVG crowbar -> illustrator
 - viewport resizing
 - transform scale
 - ai2html
@@ -351,7 +355,7 @@ Artisanal label placement for d3 graphics
 
 <p class='lh' style='opacity: 0'>Save with copy/paste</p>
     
-    > copy(playerLabelOffsets)
+    > copy(labelOffsets)
 
 [roadtolarissa.com/stacked-bump](http://roadtolarissa.com/stacked-bump/)
 
@@ -362,7 +366,11 @@ Artisanal label placement for d3 graphics
 [Has Formula One Become Less Competitive?](http://blogs.ft.com/ftdata/2016/03/21/formula-one-competitive-hamilton-schumacher/?Authorised=false&_i_location=http%3A%2F%2Fblogs.ft.com%2Fftdata%2F2016%2F03%2F21%2Fformula-one-competitive-hamilton-schumacher%2F&_i_referer=https%3A%2F%2Ft.co%2F3f9ea32b28f07424a89a839b7dd91732&classification=conditional_standard&iab=barrier-app)
 
 
-## Not quite a library - Insert SVG
+## Insert SVG into HTML
+<div style='max-width: 500px; margin: 0px auto;'>![](img/layout.png)</div>
+
+
+## Not quite a library
 
 <p class='lh'>Client Side</p>
 

@@ -41,7 +41,8 @@ body {
   letter-spacing: normal;
   text-transform: uppercase;
   text-shadow: none;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  }
 
 .reveal h1 {
   font-size: 2.5em; }
