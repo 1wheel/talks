@@ -30,6 +30,7 @@
 		</script>
 
 		<script src="js/d3.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
 
 		<style>
 			li{
@@ -115,26 +116,16 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/highlight/highlight.js', async: false, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { 
+						 hljs.initHighlightingOnLoad(); } },
 					{ src: 'plugin/zoom-js/zoom.js', async: true },
 					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
 
 			Reveal.addEventListener( 'ready', function( event ) {
-				d3.selectAll('p').each(function(){
-					var sel = d3.select(this)
-					if (sel.text() == 'Before') sel.classed('before', true)
-					if (sel.text() == 'After')  sel.classed('after',  true)
-				})
-
-				d3.selectAll('h2').each(function(){
-					var sel = d3.select(this)
-
-					if (sel.text() == 'ƒIELD ACCESSOR') sel.style('text-transform', 'none')
-					if (sel.text() == 'dataAppend') sel.style('text-transform', 'none')
-				})  
-
+				// d3.selectAll('code').classed('js', true)
+				hljs.initHighlightingOnLoad()
 				d3.selectAll('video').on('click', function(){
 					this.play()
 				})

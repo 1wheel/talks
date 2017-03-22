@@ -91,23 +91,19 @@ Each *value* must have its own cell.
 
 
 ## Transform to tidy data
-````
+```
 var data = []
 glob.sync('raw-csv/*.csv').forEach(function(path, i){
   var elections = d3.csvParse(fs.readFileSync(path, 'utf-8'))
-
   var country = _.last(path.split('/')).replace('.csv', '')
+  
   var parties = election.columns.filter(d => d != 'year')
-
-  elections.forEach(function(election){
-    var year = election.year
-    parties.forEach(function(party){
-      data.push({country, year, party, percent: year[party]})
-    })
+  d3.cross(parties, elections, (party, election) => {
+    data.push({country, party, year: election.year, percent: year[party]})
   })
 })
 fs.writeFileSync('data.csv', d3.csvFormat(data))
-````
+```
 
 
 ## Tidied Data 
@@ -242,54 +238,143 @@ data = data
 
 ## Data Manipulation Verbs
 
-- filter
-- sort
-- group
-- mutate 
+### filter
+### sort
+### group
+### mutate 
 
 
 ## d3.nestBy
 
 ````
-d3.nestBy = function(d){
-  return d3.nest().key(key).entries(array).map(function(d){
-    d.values.key = d.key
-    return d.values
-  })
+d3.nestBy = function(array, key){
+  return d3.nest()
+    .key(key)
+    .entries(array)
+    .map(function(d){
+      d.values.key = d.key
+      return d.values
+    })
 }
 ````
 
 [github.com/gka/d3-jetpack](https://github.com/gka/d3-jetpack)
 
 
+## NBA Win/Loss
+
+![](img/nba-win.png)
+
+[roadtolarissa.com/nba-win-loss/](http://roadtolarissa.com/nba-win-loss/)
 
 
-[Mister Nester](http://bl.ocks.org/shancarter/raw/4748131/)
+## Aggregate, then display
 
 ```
-  return nest().key(key).entries(array).map(function(d){
-    d.values.key = d.key
-    return d.values
-  })
+console.log(games.length) //55774
+
+var byWinLoss = d3.nestBy(games, d => d.tW + ':' + d.tL)
+byWinLoss.forEach(function(d){
+  d.tW = d[0].tW
+  d.tL = d[0].tL
+})
+
+svg.appendMany(byWinLoss, 'rect')
+    .translate(d => [x(d.tL), y(d.tW)])
+    .attr('fill', d => color(d.length))
+```
 
 
-  d3.nestBy = function(d){
-    return d3.nest().key(key).entries(array).map(function(d){
-      d.values.key = d.key
-      return d.values
+## Derive new data
+
+```
+var recordBests = []
+d3.nestBy(byWinLoss, d => d.tW).forEach(function(byWins){
+  d.values = _.sortBy(d.values, ƒ('tL'))
+  var best = d3.min(byWins, d => d.tL)
+  if (_.last(recordBests).tL >= best.tL){ recordBests.push(best) }
+})
+```
+![](img/best-line.png)
+
+
+## Useful without data
+
+![](img/projecting-land.png)
+
+[roadtolarissa.com/projecting-land/](http://roadtolarissa.com/projecting-land/)
+
+
+## Merge continents 
+
+```
+d3.json('world-110m.json', function(err, world){
+  var continents = d3.nestBy(
+      world.objects.countries.geometries, 
+      d => d.properties.continent
+    ).map(d => topojson.merge(world, d))
+
+  // only 7 shapes to draw now
+  d3.timer(() => {
+    continents.forEach((d, i) => {
+      ctx.fillStyle = colors[i]
+      ctx.beginPath(), path(d), ctx.fill()
     })
-  }
+  })
 ```
 
-## Win loss
+
+## Look up color at each pixel  
+
+```
+var img = ctx.getImageData(0, 0, width, height).data
+
+var pts = []
+for (var x = 0; x < width; x += 1) {
+  for (var y = 0; y < height; y += 1) {
+    var i = (x + y*width)*4
+    if (img[i] > 2) pts.push([x, y, img[i], img[i + 1], img[i + 2]])
+  }
+}
+```
 
 
-## Projecting land
+## Group by Y position to calculate X position
+
+```
+d3.nestBy(pts, d => d[1])
+  .forEach(row => {
+    row.forEach(function(d, i){
+      d.x = i*s + Math.round(width/2 - row.length/2)
+    })
+  })
+```
+
+
+## Draw by color
+
+```
+d3.nestBy(pts, d => 'rgb(' + [d[2], d[3], d[4]] + ')')
+  .forEach(d => {
+    ctx2.fillStyle = d.key
+    ctx2.beginPath()
+    d.forEach(d => ctx2.rect(d.x, d[1], s*1, s*1) )
+    ctx2.fill()    
+  })
+```
+Setting `ctx.fillStyle` is expensive
+
+
+## Fun things to read
+- [r4ds.had.co.nz/](http://r4ds.had.co.nz/)
+- [roadtolarissa.com/data-exploration/](http://roadtolarissa.com/data-exploration/)
+- [roadtolarissa.com/stacked-bump/](http://roadtolarissa.com/stacked-bump/)
+- [learnjsdata.com/](http://learnjsdata.com/)
+- [Mister Nester](http://bl.ocks.org/shancarter/raw/4748131/)
 
 
 
-
-
+# misc tk delete delete delete
 
 var rectSel = yearSel.appendMany(d => d.values, 'rect')
   .classed('poll', function(d) { return d.electionType == 'poll'; })
@@ -313,418 +398,4 @@ var rectSel = yearSel.appendMany(d => d.values, 'rect')
     d3.select('.tooltip').html(html)
   })
 ````
-
-
-<!-- complex interactions with lots of screens -->
-![billionaires gif](img/billionaires.png)
-[bloomberg.com/billionaires](http://www.bloomberg.com/billionaires/)
-
-
-<!--  -->
-## Big tools
-![angular/backbone/ember img](img/js-fw.png)
-
-- Within a project, reuse code with components
-
-- Between projects, reuse framework abstractions
-
-
-<!--  start to publish interactive work on a weekly and daily basis intead of monthly. 
-
-tk tk published in 2015!
--->
-## Transitioning to a traditional graphics desk
-<video src='img/2015.mov' autoplay loop style='max-width: 600px; margin: 0px auto;'></video>
-
-[bloomberg.com/graphics/2015-in-graphics](http://www.bloomberg.com/graphics/2015-in-graphics/)
-
-
-
-<!-- big frameworks become too unwieldly 
-  
-  - too many abstractions 
-  - don't need to manage complex state 
-  - working directly with DOM is hacky
-
-  - high fixed cost to starting a new project
-  - barrier to entry; want designers and reporters
-
-default on techiqal debt!
--->
-## frameworks become unwieldy 
-  - Unnecessary abstractions 
-  - Higher barrier to entry
-
-
-<!--  -->
-## reusing code is trickier
-- Start project by copying/pasting bl.ocks 
-- Forage through old code for useful bits & bobs
-
-
-<!-- working with much lower primatives than ggplot or something - tons of flexablitiy, but even doing something simple is hard -->
-## d3 is verbose
-
-'simple' scatterplot: 48 lines and 1398 characters of code
-````
-d3.tsv('data.tsv', function(error, data) {
-  var margin = {top: 20, right: 20, bottom: 30, left: 40},
-      width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
-
-  var svg = d3.select('body').append('svg')
-      .attr('width', width + margin.left + margin.right)
-      .attr('height', height + margin.top + margin.bottom)
-    .append('g')
-      .attr('transform', 'translate(' + margin.left + ',' + margin.top + ')');
-  
-  var x = d3.scale.linear()
-      .range([0, width]);
-
-  var y = d3.scale.linear()
-      .range([height, 0]);
-
-  var color = d3.scale.category10();
-
-  var xAxis = d3.svg.axis()
-      .scale(x)
-      .orient('bottom');
-
-  var yAxis = d3.svg.axis()
-      .scale(y)
-      .orient('left');
-
-  x.domain(d3.extent(data, function(d) { return d.sepalWidth; })).nice();
-  y.domain(d3.extent(data, function(d) { return d.sepalLength; })).nice();
-
-  svg.append('g')
-      .attr('class', 'x axis')
-      .attr('transform', 'translate(0,' + height + ')')
-      .call(xAxis)
-
-  svg.append('g')
-      .attr('class', 'y axis')
-      .call(yAxis)
-
-  svg.selectAll('.dot')
-      .data(data)
-    .enter().append('circle')
-      .attr('class', 'dot')
-      .attr('r', 3.5)
-      .attr('cx', function(d) { return x(d.sepalWidth); })
-      .attr('cy', function(d) { return y(d.sepalLength); })
-      .style('fill', function(d) { return color(d.species); });
-});
-````
-[bl.ocks.org/mbostock/3887118](https://bl.ocks.org/mbostock/3887118)
-
-
-<!--  Gregor made add ons for d3
-don't need bostock to merge a pull request - experment w/ APIs on your own first
- -->
-##d3-jetpack
-![jetpack comic](https://camo.githubusercontent.com/37eb19461d1dba8d6af9c2a816f488b9bf244691/687474703a2f2f33362e6d656469612e74756d626c722e636f6d2f74756d626c725f6d346b6b7864386e57423172776b7264626f315f3530302e6a7067)
-
-- [github.com/gka/d3-jetpack](https://github.com/gka/d3-jetpack)
-
-
-<!-- 
-what do we end up copying and pasting all the time?
-
-have to remember to type transform, then build the string w/ the wonky svg syntax-->
-##translate
-
-Before
-````javascript
-svg.append('g.x.axis')
-    .attr('transform', 'translate(0,' + height + ')')
-````
-
-After
-
-````javascript
-svg.append('g.x.axis')
-    .translate([0, height])
-````
-
-
-##appending with class
-Works with IDs and multiple classes
-
-Before
-
-````javascript
-svg.append('g')
-    .attr('id', '#y-axis')
-    .call(yAxis)
-  .append('text')
-    .attr('class', 'label number')
-````
-
-After
-
-````javascript
-svg.append('g#y-axis')
-    .call(yAxis)
-  .append('text.label.number')
-````
-
-
-<!-- pluck, 
-
-also composes. no more typing return!!
-
-can do this w/ es6 too, nice not having a build step.  -->
-<h2 style='text-transform:none'>ƒIELD ACCESSOR</h2>
-
-Before
-
-````javascript
-x.domain(d3.extent(data, function(d) { return d.sepalWidth; }))
-y.domain(d3.extent(data, function(d) { return d.sepalLength; }))
-````
-
-After
-
-````javascript
-x.domain(d3.extent(data, ƒ('sepalWidth')))
-y.domain(d3.extent(data, ƒ('sepalLength')))
-````
-
-
-<!--  gregor stopped responding pull requests - realized i could just make my own!-->
-##d3-starterkit
-Snippets and conventions for d3
-
-[github.com/1wheel/d3-starterkit](https://github.com/1wheel/d3-starterkit)
-
-
-<!-- only just enter exit update if you need it! -->
-##dataAppend
-Before
-
-````javascript
-svg.selectAll('circle.dot')
-    .data(data)
-  .enter().append('circle.dot')
-````
-
-After
-
-````javascript
-svg.dataAppend(data, 'circle.dot')
-````
-
-
-<!-- no more google around for the margin conventention bl.ock -->
-##d3.conventions - margins
-Before
-
-````javascript
-var margin = {top: 20, right: 20, bottom: 30, left: 40},
-    width = 960 - margin.left - margin.right,
-    height = 500 - margin.top - margin.bottom;
-
-var svg = d3.select('body').append('svg')
-    .attr('width', width + margin.left + margin.right)
-    .attr('height', height + margin.top + margin.bottom)
-  .append('g')
-    .attr('transform', 
-      'translate(' + margin.left + ',' + margin.top + ')')
-````
-
-After
-````javascript
-var c = d3.conventions({
-  margin: {top: 20, right: 20, bottom: 30, left: 40},
-  width:  960,
-  height: 500,
-})
-````
-
-
-<!--  sets the range of linear scales and links them to axis -->
-##d3.conventions - scales
-Creates and configures scales and axes
-
-Before
-
-````javascript
-var x = d3.scale.linear()
-    .range([0, width])
-    .domain(d3.extent(data, ƒ('sepalWidth')))
-
-var y = d3.scale.linear()
-    .range([height, 0])
-    .domain(d3.extent(data, ƒ('sepalLength')))
-````
-
-After
-````javascript
-c.x.domain(d3.extent(data, ƒ('sepalWidth')))
-c.y.domain(d3.extent(data, ƒ('sepalLength')))
-
-c.drawAxis()
-````
-
-
-<!-- 
-  much easier to sketch with d3. can make 3 or 4 or 6 and present rough sketches, and improve the best. looking at the actual data earlier is better 
-  
-  also nice to move from sketch to final polishing more seamlessly - doing prelim work in R or excel would require starting from scracth to add interactivity.
--->
-##Minimally viable (scatter) plot 
-
-````
-d3.tsv('data.tsv', function(data) {
-  var c = d3.conventions()
-  c.x.domain(d3.extent(data, ƒ('sepalWidth')))
-  c.y.domain(d3.extent(data, ƒ('sepalLength')))
-
-  c.drawAxis()
-
-  c.svg.dataAppend(data, 'circle.dot')
-      .attr('r', 3.5)
-      .attr('cx', ƒ('sepalWidth', c.x))
-      .attr('cy', ƒ('sepalLength', c.y))
-      .style('fill', ƒ('species', c.color))
-      .call(d3.attachTooltip)
-})
-````
-[bl.ocks.org/1wheel/3dfee2b74943398f0550](http://bl.ocks.org/1wheel/3dfee2b74943398f0550)
-
-
-<!--  -->
-##graph-scroll
-Simple scrolling events for d3 graphics
-
-[1wheel.github.io/graph-scroll/](http://1wheel.github.io/graph-scroll/)
-
-
-
-<!--  -->
-![scroll splash](img/scroll_talk.png)
-[vallandingham.me/scroll_talk/](http://vallandingham.me/scroll_talk/)
-
-
-##Steppers
-[![](img/stepper-pres.png)](http://www.bloomberg.com/politics/articles/2014-11-25/when-do-presidential-candidates-announce)
-
-[![](img/stepper-gov.png)](http://www.bloomberg.com/politics/graphics/2014-incumbent-governors/)
-
-
-<video src='img/color.mov' loop style='max-width: 600px; margin: 0px auto;'></video>
-[roadtolarissa.com/blog/2015/01/04/coloring-maps-with-d3/](http://roadtolarissa.com/blog/2015/01/04/coloring-maps-with-d3/)
-
-
-<video src='img/cars.mov' loop style='max-width: 600px; margin: 0px auto;'></video>
-[bloomberg.com/graphics/2015-auto-sales/](http://www.bloomberg.com/graphics/2015-auto-sales/)
-
-
-<video src='img/warming.mov' loop style='max-width: 600px; margin: 0px auto;'></video>
-[bloomberg.com/graphics/2015-whats-warming-the-world/](http://www.bloomberg.com/graphics/2015-whats-warming-the-world/)
-
-
-<video src='img/ascii.mov' loop style='max-width: 600px; margin: 0px auto;'></video>
-[bloomberg.com/graphics/year-ahead-2016/](http://www.bloomberg.com/graphics/year-ahead-2016/)
-
-
-##Open Source
-- Awkward combination of css/html/js
-- Flexibility/ease of use trade-off
-- Needs better examples
-
-![scroll splash](img/scroll-tweet.png)
-
-
-<!--  -->
-##swoopy-drag
-Artisanal label placement for d3 graphics
-
-[1wheel.github.io/swoopy-drag/](http://1wheel.github.io/swoopy-drag/)
-
-
-##Other attempts
-- SVG crowbar -> illustrator
-- viewport resizing
-- transform scale
-- ai2html
-- [bizweekgraphics.com/swoopyarrows/](http://www.bizweekgraphics.com/swoopyarrows/)
-
-
-##Drag in the browser
-
-    var drag = d3.behavior.drag()
-        .on('drag', function(d){
-          var pos = d3.mouse(c.svg.node())
-          var x = pos[0] - d3.select(this).attr('x')
-          var y = pos[1] - d3.select(this).attr('y')
-          var offset = [x, y].map(Math.round)
-
-          labelOffsets[d.name] = offset
-          d3.select(this).translate(offset)
-        })
-
-    c.svg.selectAll('text.name').call(drag)
-
-<p class='lh' style='opacity: 0'>Save with copy/paste</p>
-    
-    > copy(labelOffsets)
-
-[roadtolarissa.com/stacked-bump](http://roadtolarissa.com/stacked-bump/)
-
-
-
-![](img/ft-swoop.png)
-
-[Has Formula One Become Less Competitive?](http://blogs.ft.com/ftdata/2016/03/21/formula-one-competitive-hamilton-schumacher/?Authorised=false&_i_location=http%3A%2F%2Fblogs.ft.com%2Fftdata%2F2016%2F03%2F21%2Fformula-one-competitive-hamilton-schumacher%2F&_i_referer=https%3A%2F%2Ft.co%2F3f9ea32b28f07424a89a839b7dd91732&classification=conditional_standard&iab=barrier-app)
-
-
-![](img/dogs.png)
-[America’s Most Popular Breeds](http://www.nationalgeographic.com/magazine/2016/americas-most-popular-dog-breeds/)
-
-
-## Insert SVG into HTML
-<div style='max-width: 400px; margin: 0px auto;'>![](img/layout.png)</div>
-
-[bloomberg.com/graphics/2015-nfl-super-bowl-salary](http://www.bloomberg.com/graphics/2015-nfl-super-bowl-salary/)
-
-
-## Not quite a library
-
-<p class='lh'>Client Side</p>
-
-    d3.xml("gambling.svg", "image/svg+xml", function(xml){
-      var el = d3.select('#svg-container')
-      el.node().appendChild(xml.documentElement)
-    })
-
-<p class='lh'>Build Step (works with IE9)</p>
-
-    var html = fs.readFileSync('src.html',     'utf-8')
-    var svg  = fs.readFileSync('gambling.svg', 'utf-8')
-    html = html.replace("id='svg-container'></div>", 
-                        "id='svg-container'>" + svg + "</div>")
-
-    fs.writeFileSync('index.html', html)
-
-
-
-- [github.com/mbostock/queue](http://github.com/mbostock/queue)
-- [iros.github.io/patternfills/](http://iros.github.io/patternfills/)
-- [github.com/emeeks/d3.svg.circularbrush](http://github.com/emeeks/d3.svg.circularbrush)
-- [github.com/mhkeller/indian-ocean](http://github.com/mhkeller/indian-ocean)
-- [d3-legend.susielu.com/](http://d3-legend.susielu.com/)
-- [github.com/jasondavies/d3-cloud](http://github.com/jasondavies/d3-cloud)
-- [bl.ocks.org/zanarmstrong/05c1e95bf7aa16c4768e](http://bl.ocks.org/zanarmstrong/05c1e95bf7aa16c4768e)
-- [github.com/WSJ/scroll-watcher](http://github.com/WSJ/scroll-watcher)
-
-
-<!--  -->
-##d3v4 
-https://github.com/d3
-
-
-<!--  -->
-##make your own!
 
