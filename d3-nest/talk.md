@@ -178,14 +178,14 @@ var byCountry = d3.nestBy(data, d => d.country)
 
 ## Group by Year
 ````
-byCountry.forEach(function(d){
-  d.values.sort(d3.ascendingKey(d => d.year))
-  d.byYear = d3.nest().key(d => d.year).entries(d.values)
-  d.byYear.forEach(function(year, i){
+byCountry.forEach(country => {
+  country.values.sort(d3.ascendingKey(d => d.year))
+  country.byYear = d3.nest().key(d => d.year).entries(d.values)
+  country.byYear.forEach((year, i) => {
     var cumulativePercent = 0
     year.values
       .sort(d3.ascendingKey(d => d.isRight ? 0 : d.isCenter: 2 : 1))
-      .forEach(function(d) {
+      .forEach(d => {
         cumulativePercent += d.percent
         d.cumulativePercent = cumulativePercent
       })
