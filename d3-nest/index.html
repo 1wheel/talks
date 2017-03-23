@@ -7,8 +7,8 @@
 		<title>d3 nest</title>
 
 		<meta name="description" content="Data comes structured in many ways, most of them messy. This talk will discuss different ways of converting your data to a tidy format, how to analyze tidy data with d3.nest and other fun d3.nest visualization techniques.">
-		<meta name="author" content="Hakim El Hattab">
-
+		<meta name="author" content="Adam Pearce">
+		<meta content="http://1wheel.github.io/talks/d3-nest/img/rect-sel.png" property="og:image" />
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
@@ -28,9 +28,11 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-
+<!-- 
+		// <script src='js/highlight.jsx'></script>
+ -->
 		<script src="js/d3.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
+		
 
 		<style>
 			li{
@@ -116,16 +118,26 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: false, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { 
-						 hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'js/highlight.js', async: true, condition: function() {
+						console.log('yo')
+						return true;
+						return !!document.querySelector( 'pre code' ); 
+					}, callback: function() {
+						console.log('hi');
+						// d3.selectAll('code').classed('javascript', true)
+						hljs.configure({languages: ['javascript']})
+						hljs.initHighlightingOnLoad(); 
+					} },
+					// { src: 'plugin/zoom-js/zoom.js', async: true },
+					// { src: 'plugin/notes/notes.js', async: true }
 				]
 			});
 
 			Reveal.addEventListener( 'ready', function( event ) {
-				// d3.selectAll('code').classed('js', true)
-				hljs.initHighlightingOnLoad()
+				// hljs.initHighlightingOnLoad()
+				
+				// d3.select('body').append('script').attr('src', "plugin/highlight/highlight.js")
+				// setTimeout(d => hljs.initHighlightingOnLoad(), 1000)
 				d3.selectAll('video').on('click', function(){
 					this.play()
 				})

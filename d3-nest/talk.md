@@ -9,22 +9,22 @@
 
 <!-- started started as a graphics editor two years ago, facts about me -->
 ## Adam Pearce
-- [nytimes.com/by/adam-pearce](https://www.nytimes.com/by/adam-pearce)
+<!-- - [nytimes.com/by/adam-pearce](https://www.nytimes.com/by/adam-pearce) -->
 - [roadtolarissa.com](http://roadtolarissa.com)
 - [github.com/1wheel](https://github.com/1wheel)
 - [@adamrpearce](https://twitter.com/adamrpearce)
 
 
 ## Data is messy
-![angular/backbone/ember img](img/excel-tabs-first.png)
+![](img/eed.png)
 
 
 ## Data is messy
-![angular/backbone/ember img](img/excel-tabs.png)
+![](img/excel-tabs-first.png)
 
 
 ## Data is messy
-![angular/backbone/ember img](img/eed.png)
+![](img/excel-tabs.png)
 
 
 ## Data is messy
@@ -59,12 +59,6 @@ Statistics/FY2000%20table%20XVII.pdf
 [http://r4ds.had.co.nz/tidy-data.html](http://vita.had.co.nz/papers/tidy-data.pdf)
 
 
-## Tidy data
-![](img/tidy-example.png)
-
-[vita.had.co.nz/papers/tidy-data.pdf](http://vita.had.co.nz/papers/tidy-data.pdf)
-
-
 ## Tidy rules
 ![](img/tidy-rules.png)
 Each _variable_ must have its own column.
@@ -86,6 +80,12 @@ Each *value* must have its own cell.
 [http://r4ds.had.co.nz/tidy-data.html](http://http://r4ds.had.co.nz/tidy-data.html)
 
 
+## Tidy data
+![](img/tidy-example.png)
+
+[vita.had.co.nz/papers/tidy-data.pdf](http://vita.had.co.nz/papers/tidy-data.pdf)
+
+
 ## How Far Is Europe Swinging to the Right?
 ![](img/raw-final.png)
 
@@ -93,7 +93,7 @@ Each *value* must have its own cell.
 ## Transform to tidy data
 ```
 var data = []
-glob.sync('raw-csv/*.csv').forEach(function(path, i){
+glob.sync('raw-csv/*.csv').forEach((path, i) => {
   var elections = d3.csvParse(fs.readFileSync(path, 'utf-8'))
   var country = _.last(path.split('/')).replace('.csv', '')
   
@@ -140,7 +140,7 @@ var data = [
 
 ## Group by country
 ````
-var byCountry = d3.nestBy(data, d => d.country)
+var byCountry = d3.nest().key(d => d.country).values(data)
 
 [
   {
@@ -176,11 +176,36 @@ var byCountry = d3.nestBy(data, d => d.country)
 ````
 
 
+## Add Countries
+````
+byCountry.sort(d3.ascendingKey(d => d.key))
+countrySel = sel.appendMany(byCountry, 'svg')
+countrySel.append('text').text(d => d.key)
+````
+![](img/country-sel.png)
+
+
 ## Group by Year
 ````
 byCountry.forEach(country => {
-  country.values.sort(d3.ascendingKey(d => d.year))
   country.byYear = d3.nest().key(d => d.year).entries(d.values)
+  country.byYear.sort(d3.ascendingKey(d => d.key))
+})
+````
+
+
+## Add Years
+````
+var yearSel = countrySel.appendMany(d => d.byYear, 'g')
+  .translate((d, i) => [xScale(i), 0])
+yearSel.append('text').text(d =>  '’'' + d.key.substr(2, 2))
+````
+![](img/year-sel.png)
+
+
+## Calculate party height
+````
+byCountry.forEach(country => {
   country.byYear.forEach((year, i) => {
     var cumulativePercent = 0
     year.values
@@ -194,27 +219,6 @@ byCountry.forEach(country => {
 ````
 
 
-## Add Countries
-````
-byCountry.sort(d3.ascendingKey(d => d.key))
-countrySel = sel.appendMany(byCountry, 'svg')
-countrySel.append('text').text(d => d.key)
-````
-![](img/country-sel.png)
-
-<!-- [github.com/gka/d3-jetpack](https://github.com/gka/d3-jetpack) -->
-
-
-
-## Add Years
-````
-var yearSel = countrySel.appendMany(d => d.byYear, 'g')
-  .translate((d, i) => [xScale(i), 0])
-yearSel.append('text').text(d =>  '’'' + d.key.substr(2, 2))
-````
-![](img/year-sel.png)
-
-
 ## Add parties
 ````
 var partySel = yearSel.appendMany(d => d.values, 'rect')
@@ -223,9 +227,16 @@ var partySel = yearSel.appendMany(d => d.values, 'rect')
                         -yScale(d.cumulativePercent)
   })
   .attr('width', xScale(1))
-  .attr('fill', d => d.isRight ? red : d.isCenter: white : grey)
+  .attr('fill', d => d.isRight ? red : d.isCenter: grey : white)
 ````
 ![](img/rect-sel.png)
+
+
+## Keep only what we want
+````
+data = data
+  .filter(function(d){ return d.year > 1996 })
+````
 
 
 ## Keep only what we want
@@ -265,7 +276,7 @@ d3.nestBy = function(array, key){
 
 ![](img/nba-win.png)
 
-[roadtolarissa.com/nba-win-loss/](http://roadtolarissa.com/nba-win-loss/)
+[roadtolarissa.com/nba-win-loss](http://roadtolarissa.com/nba-win-loss/)
 
 
 ## Aggregate, then display
@@ -287,22 +298,22 @@ svg.appendMany(byWinLoss, 'rect')
 
 ## Derive new data
 
+![](img/best-line.png)
+
 ```
 var recordBests = []
 d3.nestBy(byWinLoss, d => d.tW).forEach(function(byWins){
-  d.values = _.sortBy(d.values, ƒ('tL'))
-  var best = d3.min(byWins, d => d.tL)
-  if (_.last(recordBests).tL >= best.tL){ recordBests.push(best) }
+  var best = _.sortBy(byWins, d => 'tL')[0]
+  if (_.last(recordBests).tL < best.tL){ recordBests.push(best) }
 })
 ```
-![](img/best-line.png)
 
 
 ## Useful without data
 
 ![](img/projecting-land.png)
 
-[roadtolarissa.com/projecting-land/](http://roadtolarissa.com/projecting-land/)
+[roadtolarissa.com/projecting-land](http://roadtolarissa.com/projecting-land/)
 
 
 ## Merge continents 
@@ -345,7 +356,7 @@ for (var x = 0; x < width; x += 1) {
 d3.nestBy(pts, d => d[1])
   .forEach(row => {
     row.forEach(function(d, i){
-      d.x = i*s + Math.round(width/2 - row.length/2)
+      d.x = i + width/2 - row.length/2
     })
   })
 ```
@@ -362,14 +373,13 @@ d3.nestBy(pts, d => 'rgb(' + [d[2], d[3], d[4]] + ')')
     ctx2.fill()    
   })
 ```
-Setting `ctx.fillStyle` is expensive
 
 
 ## Fun things to read
-- [r4ds.had.co.nz/](http://r4ds.had.co.nz/)
-- [roadtolarissa.com/data-exploration/](http://roadtolarissa.com/data-exploration/)
-- [roadtolarissa.com/stacked-bump/](http://roadtolarissa.com/stacked-bump/)
-- [learnjsdata.com/](http://learnjsdata.com/)
+- [r4ds.had.co.nz](http://r4ds.had.co.nz)
+- [roadtolarissa.com/data-exploration](http://roadtolarissa.com/data-exploration)
+- [roadtolarissa.com/stacked-bump](http://roadtolarissa.com/stacked-bump)
+- [learnjsdata.com](http://learnjsdata.com/)
 - [Mister Nester](http://bl.ocks.org/shancarter/raw/4748131/)
 
 
