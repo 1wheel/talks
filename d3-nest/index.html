@@ -28,9 +28,11 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
-
+<!-- 
+		// <script src='js/highlight.jsx'></script>
+ -->
 		<script src="js/d3.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
+		
 
 		<style>
 			li{
@@ -116,16 +118,26 @@
 					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
 					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
 					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: false, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { 
-						 hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'js/highlight.js', async: true, condition: function() {
+						console.log('yo')
+						return true;
+						return !!document.querySelector( 'pre code' ); 
+					}, callback: function() {
+						console.log('hi');
+						// d3.selectAll('code').classed('javascript', true)
+						hljs.configure({languages: ['javascript']})
+						hljs.initHighlightingOnLoad(); 
+					} },
+					// { src: 'plugin/zoom-js/zoom.js', async: true },
+					// { src: 'plugin/notes/notes.js', async: true }
 				]
 			});
 
 			Reveal.addEventListener( 'ready', function( event ) {
-				// d3.selectAll('code').classed('js', true)
-				hljs.initHighlightingOnLoad()
+				// hljs.initHighlightingOnLoad()
+				
+				// d3.select('body').append('script').attr('src', "plugin/highlight/highlight.js")
+				// setTimeout(d => hljs.initHighlightingOnLoad(), 1000)
 				d3.selectAll('video').on('click', function(){
 					this.play()
 				})
