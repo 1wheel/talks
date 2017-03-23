@@ -59,12 +59,6 @@ Statistics/FY2000%20table%20XVII.pdf
 [http://r4ds.had.co.nz/tidy-data.html](http://vita.had.co.nz/papers/tidy-data.pdf)
 
 
-## Tidy data
-![](img/tidy-example.png)
-
-[vita.had.co.nz/papers/tidy-data.pdf](http://vita.had.co.nz/papers/tidy-data.pdf)
-
-
 ## Tidy rules
 ![](img/tidy-rules.png)
 Each _variable_ must have its own column.
@@ -84,6 +78,12 @@ Each *observation* must have its own row.
 Each *value* must have its own cell.
 
 [http://r4ds.had.co.nz/tidy-data.html](http://http://r4ds.had.co.nz/tidy-data.html)
+
+
+## Tidy data
+![](img/tidy-example.png)
+
+[vita.had.co.nz/papers/tidy-data.pdf](http://vita.had.co.nz/papers/tidy-data.pdf)
 
 
 ## How Far Is Europe Swinging to the Right?
@@ -179,9 +179,8 @@ var byCountry = d3.nest().key(d => d.country).values(data)
 ## Group by Year
 ````
 byCountry.forEach(country => {
-  d.values.sort(d3.ascendingKey(d => d.year))
-  d.byYear = d3.nest().key(d => d.year).entries(d.values)
-  d.byYear.forEach((year, i) => {
+  country.byYear = d3.nest().key(d => d.year).entries(country.values)
+  country.byYear.forEach((year, i) => {
     var cumulativePercent = 0
     year.values
       .sort(d3.ascendingKey(d => d.isRight ? 0 : d.isCenter: 2 : 1))
@@ -226,6 +225,13 @@ var partySel = yearSel.appendMany(d => d.values, 'rect')
   .attr('fill', d => d.isRight ? red : d.isCenter: grey : white)
 ````
 ![](img/rect-sel.png)
+
+
+## Keep only what we want
+````
+data = data
+  .filter(function(d){ return d.year > 1996 })
+````
 
 
 ## Keep only what we want
