@@ -19,6 +19,9 @@ https://www.reddit.com/r/CAguns/comments/73rek8/nevada_vegas_shooting/dnsod31/
 how can we make this understandable to non experts
 boil away complexity 
 
+the best piece ever
+http://www.nytimes.com/interactive/2010/02/26/sports/olympics/20100226-olysymphony.html
+
 jon made audio markers in audition
 https://i.imgur.com/vA08o9k.png
 
@@ -44,4 +47,4 @@ https://preview.nyt.net/preview/2017-10-02-vegas-guns/5b0a483/
 
 With more time, more sophisticated analysis is possible 
 https://twitter.com/malachybrowne/status/922574515091144704
-times video dept used the audio of the gun shots to sync dozens of videos of the shooting and create a timeline
+tihttps://twitter.com/blprnt/status/923000828746592258https://twitter.com/blprnt/status/923000828746592258mes video dept used the audio of the gun shots to sync dozens of videos of the shooting and create a timeline
