@@ -13,8 +13,10 @@ Adam Pearce is a graphics editor at the New York Times. Previously he made inter
 - http://roadtolarissa.com/hurricane
 - https://www.nytimes.com/interactive/2017/08/29/upshot/harvey-rainfall-where-you-live.html
 - https://pmm.nasa.gov/data-access/downloads/gpm
+- https://i.imgur.com/cFAL1iC.png
 - https://www.youtube.com/watch?v=tHXHUc52SAw
 - http://www.srh.noaa.gov/data/ridge2/Precip/qpehourlyshape/2017/201708/20170828/
+- http://www.srh.noaa.gov/data/ridge2/Precip/qpehourlyshape/2017/201708/20170826/
 - http://www.qgis.org/en/site/
 - http://d3js.com/
 - https://github.com/gka/d3-jetpack
