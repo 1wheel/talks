@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "io": "^0.1.10",
+    "scrape-stl": "^1.0.3"
+  }
+}
