@@ -2,3 +2,7 @@ body{
   font-family: monaco, Consolas, 'Lucida Console', monospace; 
   margin: 0px;
 }
+
+.graph canvas, .graph svg{
+  position: absolute;
+}
