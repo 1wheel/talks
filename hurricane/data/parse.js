@@ -18,8 +18,6 @@ var points = jp.nestBy(data, d => d.Id).map(point => {
    return {vals, Lat: +point[0].Lat, Lon: +point[0].Lon}
 })
 
-io.writeDataSync(__dirname + '/points.json', points)
-
 points = points.filter(d =>{
   var validLat =  25.7 <= d.Lat && d.Lat <= 31.2
   var validLon = -99.2 <= d.Lon && d.Lon <= -89.1
