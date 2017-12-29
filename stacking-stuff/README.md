@@ -52,3 +52,9 @@ https://www.nytimes.com/interactive/2017/12/17/upshot/tax-calculator.html
 
 https://twitter.com/adamrpearce/status/905482198840639488
 
+
+## d3-jetpack does the hard work for you!
+
+`var {layers: [svg, bg_ctx, fg_ctx]} = d3.conventions({layers: 'scc'})`
+
+https://github.com/gka/d3-jetpack
