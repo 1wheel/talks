@@ -1,8 +1,8 @@
 # Stacking Stuff: Tricks for Visualizing Data Through Occlusion
 
-Drawing complicated shapes with code is hard. Drawing simple shapes on top of each other makes it a little easier.
+Drawing complicated shapes with code is hard. Drawing simple shapes and stacking them to create complicated shapes is a little easier.
 
-This talk will describe different ways to apply this idea, show you how to efficiently animate a line chart, fake 3D in SVG, animate millions of points with canvas and use crisp, word wrapped text with WebGL.  
+This talk will describe different ways to apply this idea, showing how to: efficiently animate a line chart; fake 3D in SVG; animate millions of points with canvas; and use crisp, word-wrapped text with WebGL.
 
 
 ## text + smaller text = text shadow
