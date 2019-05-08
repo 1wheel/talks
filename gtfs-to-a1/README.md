@@ -10,7 +10,7 @@ shareimg: http://roadtolarissa.com/images/posts/tktkt.png
 github.com/1wheel/subway
 
 first piece
-https://www.nytimes.com/interactive/2017/06/28/nyregion/subway-delays-overcrowding.html?_r=0
+https://www.nytimes.com/interactive/2017/06/28/nyregion/subway-delays-overcrowding.html
 
 mta dev docs
 http://web.mta.info/developers/download.html
