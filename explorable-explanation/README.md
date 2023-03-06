@@ -27,7 +27,7 @@
 *   [Tracing the History of N.C.A.A. Conferences](https://www.nytimes.com/newsgraphics/2013/11/30/football-conferences/index.html)
 *   [Among the Oscar Contenders, a Host of Connections](https://archive.nytimes.com/www.nytimes.com/interactive/2013/02/20/movies/among-the-oscar-contenders-a-host-of-connections.html)
 
-### Simple or complex?
+### Simple or strange?
 
 *   [Minute by Minute Point Differentials of 2015 NBA Games](https://roadtolarissa.com/nba-minutes/)
 *   [A Small Indiana County Sends More People to Prison Than San Francisco and Durham, N.C., Combined. Why?](https://www.nytimes.com/2016/09/02/upshot/new-geography-of-prisons.html)
@@ -49,7 +49,7 @@
 
 ### Keep your stack simple
 
-*   Backend servers will fail first — bake out data files and take screenshots
+*   Backend servers will fail first — bake out data files and take [screenshots](https://roadtolarissa.com/2018-chart-diary/)
 *   Front end frameworks will stop [compiling](https://twitter.com/redblobgames/status/1626709650891771904)
 *   “Software best practices are shaped by the need of corporations to make programmers interchangeable. Don’t let the logic of capitalism infect your art — write shitty code and be free” — [Brian Abelson](https://brian.abelson.live/about/) (roughly)
 
