@@ -1,3 +1,6 @@
+# Explorable Explanations: Why and How
+
+
 ## Three influences from a decade ago…
 
 *   [Crossfilter](https://square.github.io/crossfilter/)
