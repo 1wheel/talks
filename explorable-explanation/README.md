@@ -26,6 +26,7 @@
 *   [Travel Times on Commuter Rail](https://archive.nytimes.com/www.nytimes.com/imagepages/2007/03/17/nyregion/nyregionspecial2/20070318_TRAIN_GRAPHIC.html?action=click&module=RelatedCoverage&pgtype=Article&region=Footer)
 *   [Tracing the History of N.C.A.A. Conferences](https://www.nytimes.com/newsgraphics/2013/11/30/football-conferences/index.html)
 *   [Among the Oscar Contenders, a Host of Connections](https://archive.nytimes.com/www.nytimes.com/interactive/2013/02/20/movies/among-the-oscar-contenders-a-host-of-connections.html)
+*   [In Defense of Interactive Graphics](https://www.vis4.net/blog/2017/03/in-defense-of-interactive-graphics/)
 
 ### Simple or strange?
 
