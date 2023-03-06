@@ -16,6 +16,7 @@
 *   [US Auto Sales](https://www.bloomberg.com/graphics/2015-auto-sales/)
 *   [Tax Bill Calculator: Will Your Taxes Go Up or Down?](https://www.nytimes.com/interactive/2017/12/17/upshot/tax-calculator.html)
 *   [Thousands Cried for Help as Houston Flooded](https://www.nytimes.com/interactive/2017/08/30/us/houston-flood-rescue-cries-for-help.html)
+*   [Tableau](https://www.tableau.com/products/desktop)
 
 
 ## Print + Interaction 
@@ -48,7 +49,7 @@
 
 ### Keep your stack simple
 
-*   Backend servers will die
+*   Backend servers will fail first — bake out data files and take screenshots
 *   Front end frameworks will stop [compiling](https://twitter.com/redblobgames/status/1626709650891771904)
 *   “Software best practices are shaped by the need of corporations to make programmers interchangeable. Don’t let the logic of capitalism infect your art — write shitty code and be free” — [Brian Abelson](https://brian.abelson.live/about/) (roughly)
 
