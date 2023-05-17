@@ -1,7 +1,7 @@
 - [People + AI Research](https://pair.withgoogle.com/)
 - [AI Explorables](https://pair.withgoogle.com/explorables/)
 - [What Have Language Models Learned?](https://pair.withgoogle.com/explorables/fill-in-the-blank/)
-- [Language Models (Mostly) Know What They Know](https://arxiv.org/abs/2207.05221)
+- [Language Models Mostly Know What They Know](https://arxiv.org/abs/2207.05221)
 - [Eliciting Latent Predictions from Transformers with the Tuned Lens](https://arxiv.org/abs/2303.08112
 - [Toolformer: Language Models Can Teach Themselves to Use Tools](https://arxiv.org/abs/2302.04761)
 - [Guidance](https://github.com/microsoft/guidance)
