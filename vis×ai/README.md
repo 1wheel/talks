@@ -7,7 +7,6 @@ https://visxai.io/
 
 https://claude.ai/new
 https://arxiv.org/abs/2001.08361
-https://www.semanticscholar.org/reader/e6c561d02500b2596a230b341a8eb8b921ca5bf2
 
 
 ## Newsgraphics
@@ -88,7 +87,7 @@ http://www.r2d3.us/visual-intro-to-machine-learning-part-1/
 https://playground.tensorflow.org
 https://karpathy.github.io/2015/05/21/rnn-effectiveness/#visualizing-the-predictions-and-the-neuron-firings-in-the-rnn
 
-### Didn't change the cannon
+### Didn't change the canon
 
 
 https://pair.withgoogle.com/explorables/
@@ -133,7 +132,7 @@ also charts are used to understand models!
 https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/makemore/makemore_part2_mlp.ipynb
 https://github.com/karpathy/nn-zero-to-hero/blob/master/lectures/makemore/makemore_part3_bn.ipynb
 
-and in reseach
+and in research
 https://arxiv.org/pdf/2001.08361
 https://arxiv.org/pdf/2402.10962#page=6
 
@@ -142,6 +141,11 @@ but they're not interactive, why?
 
 ## Vis for research
 
+- embedding/clustering/plotting linked hover
+- found a new thing!
+- made an app, tried to pitch teams on using it
+- do over: find more new things, write them out
+- make another composable tool for the toolbox, not an app
 https://arxiv.org/abs/2301.04518
 
 https://cscheid.net/2011/11/01/how-many-papers-could-nyt-write-in-three-weeks.html
@@ -151,12 +155,15 @@ https://cscheid.net/2011/11/01/how-many-papers-could-nyt-write-in-three-weeks.ht
 min(vis, ml, software)
 https://pair-code.github.io/interpretability/uncertainty-over-space/
 
-colaberate!
+collaborate!
 don't just ask for data
-get in the inner loop/be able to run experminent
+get in the inner loop/be able to run experiment
 
 need to have lots of contact with ideas!
-most vis things won't help
+most potential interactive vis requires too much work to make. more fundamentally, need to immerse yourself in the ideas and internalize them to find where you can bend rules/data/make new data
+
+distill has sliders, distill is good. i want to make something good, so i'll make some sliders?
+https://arxiv.org/pdf/2001.08361 information density key — only add interaction when you're stuck
 
 https://pair-code.github.io/tiny-transformers/decision-boundary/08-animate-vocab-embed/
 https://pair-code.github.io/tiny-transformers/decision-boundary/14-rasp-hand-weights/
@@ -168,7 +175,7 @@ https://pair-code.github.io/tiny-transformers/mlp-modular/01-train-embedding/
 
 ### Things I'm excited by
 
-
+https://transformer-circuits.pub/2024/qualitative-essay/index.html
 
 claude
 https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming
@@ -178,16 +185,16 @@ https://blocks.roadtolarissa.com/1wheel/raw/f6f6caa321fc2eff5afa272e8242e042/ind
 
 https://idl.uw.edu/mosaic/
 https://anywidget.dev/
-
+https://penzai.readthedocs.io/en/stable/notebooks/how_to_think_in_penzai.html
+also make jax-js please
 https://transformerlensorg.github.io/TransformerLens/
 https://nnsight.net/
-https://penzai.readthedocs.io/en/stable/notebooks/how_to_think_in_penzai.html
 
 
 new lens
 https://lre.baulab.info/
-https://transformer-circuits.pub/2024/scaling-monosemanticity/
 https://arxiv.org/pdf/2401.06102
+https://transformer-circuits.pub/2024/scaling-monosemanticity/
 
 
 # Misc
