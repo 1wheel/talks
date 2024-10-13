@@ -4,6 +4,12 @@ Well-crafted visualizations are the highest bandwidth way of downloading informa
 
 https://visxai.io/
 
+
+https://claude.ai/new
+https://arxiv.org/abs/2001.08361
+https://www.semanticscholar.org/reader/e6c561d02500b2596a230b341a8eb8b921ca5bf2
+
+
 ## Newsgraphics
 
 ### New ways of looking at information
@@ -136,11 +142,52 @@ but they're not interactive, why?
 
 ## Vis for research
 
-
+https://arxiv.org/abs/2301.04518
 
 https://cscheid.net/2011/11/01/how-many-papers-could-nyt-write-in-three-weeks.html
 
+### Too hard?
 
+min(vis, ml, software)
+https://pair-code.github.io/interpretability/uncertainty-over-space/
+
+colaberate!
+don't just ask for data
+get in the inner loop/be able to run experminent
+
+need to have lots of contact with ideas!
+most vis things won't help
+
+https://pair-code.github.io/tiny-transformers/decision-boundary/08-animate-vocab-embed/
+https://pair-code.github.io/tiny-transformers/decision-boundary/14-rasp-hand-weights/
+https://pair-code.github.io/tiny-transformers/patch/00-addition-identity/
+
+https://pair-code.github.io/tiny-transformers/mlp-modular/00-sweep/
+https://pair-code.github.io/tiny-transformers/mlp-modular/01-train-embedding/
+
+
+### Things I'm excited by
+
+
+
+claude
+https://www.geoffreylitt.com/2023/03/25/llm-end-user-programming
+
+https://www.datadoghq.com/blog/datadog-dashboards/#responsive-grid-based-layout
+https://blocks.roadtolarissa.com/1wheel/raw/f6f6caa321fc2eff5afa272e8242e042/index.html
+
+https://idl.uw.edu/mosaic/
+https://anywidget.dev/
+
+https://transformerlensorg.github.io/TransformerLens/
+https://nnsight.net/
+https://penzai.readthedocs.io/en/stable/notebooks/how_to_think_in_penzai.html
+
+
+new lens
+https://lre.baulab.info/
+https://transformer-circuits.pub/2024/scaling-monosemanticity/
+https://arxiv.org/pdf/2401.06102
 
 
 # Misc
