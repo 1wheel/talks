@@ -4,7 +4,11 @@ https://x.com/_chenglou/status/2038151738847584529
 
 https://cannoneyed.com/projects/isometric-nyc
 
-https://x.com/kcimc/status/2043857978718339494
+https://youshouldmakemaps.com/
+
+https://bsky.app/profile/colin-fraser.net/post/3mip24yrios2e
+
+https://bsky.app/profile/kcimc.bsky.social/post/3mjg6qj344s2v
 
 
 https://arxiv.org/pdf/2001.08361
